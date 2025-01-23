@@ -7,6 +7,7 @@ TextStyle appStyle(double size, Color color, FontWeight fw) {
     color: color,
     fontWeight: fw,
     fontFamily: 'Poppins',
+    overflow: TextOverflow.ellipsis,
   );
 }
 
@@ -17,6 +18,7 @@ TextStyle headingStyle(double size, Color color, FontWeight fw) {
     fontWeight: fw,
     fontFamily: 'Poppins',
     height: 1.3,
+    overflow: TextOverflow.ellipsis,
   );
 }
 
@@ -26,6 +28,7 @@ TextStyle titleStyle() {
     color: Colors.black,
     fontWeight: FontWeight.w600,
     fontFamily: 'Poppins',
+    overflow: TextOverflow.ellipsis,
   );
 }
 
@@ -35,6 +38,7 @@ TextStyle subTitleStyle() {
     color: Colors.grey,
     fontWeight: FontWeight.normal,
     fontFamily: 'Poppins',
+    overflow: TextOverflow.ellipsis,
   );
 }
 
@@ -45,6 +49,7 @@ TextStyle bodyStyle() {
     fontWeight: FontWeight.normal,
     fontFamily: 'Poppins',
     height: 1.5,
+    overflow: TextOverflow.ellipsis,
   );
 }
 
@@ -55,5 +60,6 @@ TextStyle buttonStyle() {
     fontWeight: FontWeight.w600,
     fontFamily: 'Poppins',
     letterSpacing: 1,
+    overflow: TextOverflow.ellipsis,
   );
 }

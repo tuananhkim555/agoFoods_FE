@@ -8,9 +8,10 @@ import 'package:get/get.dart';
 
 // ignore: must_be_immutable
 class CategoryTile extends StatelessWidget {
-   CategoryTile({
+  CategoryTile({
     super.key,
     required this.category,
+    required Color textColor,
   });
 
   var category;
@@ -19,9 +20,10 @@ class CategoryTile extends StatelessWidget {
   Widget build(BuildContext context) {
     return ListTile(
       onTap: () {
-        Get.to(() => const CategoryPage(),
-         transition: Transition.fadeIn,
-         duration: const Duration(milliseconds: 400),
+        Get.to(
+          () => const CategoryPage(),
+          transition: Transition.fadeIn,
+          duration: const Duration(milliseconds: 300),
         );
       },
       leading: CircleAvatar(
@@ -34,7 +36,7 @@ class CategoryTile extends StatelessWidget {
       ),
       title: ReusableText(
         text: category["title"],
-        style: appStyle(12, kGray, FontWeight.normal),
+        style: appStyle(12, kGrayDark, FontWeight.w500),
       ),
       trailing: Icon(
         Icons.arrow_forward_ios_rounded,

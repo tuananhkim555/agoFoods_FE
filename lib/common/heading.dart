@@ -27,7 +27,7 @@ class Heading extends StatelessWidget {
             onTap: onTap,
             child: Icon(
               FontAwesomeIcons.barsProgress,
-              color: kSecondary,
+              color: kPrimary,
               size: 20.sp,
             ),
           )

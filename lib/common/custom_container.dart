@@ -11,15 +11,21 @@ class CustomContainer extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return SizedBox(
-      child: ClipRRect(
-        child: Container(
-          width: width,
-          color: kOffWhite,
-          child: SingleChildScrollView(
-            child: containerContent,
-          ),
+      height: MediaQuery.of(context).size.height * 0.75,
+      width: width,
+      // child: ClipRRect(
+      //   borderRadius: BorderRadius.only(
+      //     bottomLeft: Radius.circular(30.r),
+      //     bottomRight: Radius.circular(30.r),
+      //   ),
+      child: Container(
+        width: width,
+        color: kOffWhite,
+        child: SingleChildScrollView(
+          child: containerContent,
         ),
       ),
+      // ),
     );
   }
 }

@@ -7,6 +7,8 @@ import 'package:agofoods/views/home/food_new_page.dart';
 import 'package:agofoods/views/home/outstanding_dish_page.dart';
 import 'package:agofoods/views/home/outstanding_drinks_page.dart';
 import 'package:agofoods/views/home/widgets/category_list.dart';
+import 'package:agofoods/views/home/widgets/food_list.dart';
+import 'package:agofoods/views/home/widgets/outstanding_dish_list.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:agofoods/common/custom_appbar.dart';
@@ -18,7 +20,7 @@ class HomePage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-        backgroundColor: kOffWhite,
+        // backgroundColor: kPrimary,
         appBar: PreferredSize(
           preferredSize: Size.fromHeight(130.h),
           child: CustomAppBar(
@@ -33,52 +35,53 @@ class HomePage extends StatelessWidget {
           ),
         ),
         body: SafeArea(
-          child: CustomContainer(containerContent: Column(
+          child: CustomContainer(
+              containerContent: Column(
             children: [
-             const CategoryList(),
+              const CategoryList(),
               Heading(
-                text: 'Món ăn nổi bật', 
+                text: 'Món ăn nổi bật',
                 onTap: () {
                   Get.to(() => const OutstandingDish(),
-                  transition: Transition.cupertino,
-                  duration: const Duration(milliseconds: 400));
+                      transition: Transition.cupertino,
+                      duration: const Duration(milliseconds: 300));
                 },
-                ),
-
-                Heading(
-                text: 'Món mới', 
+              ),
+              const OutstandingDishList(),
+              Heading(
+                text: 'Món mới',
                 onTap: () {
                   Get.to(() => const FoodNewPage(),
-                  transition: Transition.cupertino,
-                  duration: const Duration(milliseconds: 400));
+                      transition: Transition.cupertino,
+                      duration: const Duration(milliseconds: 300));
                 },
-                ),
-
-                Heading(
-                text: 'Món gần bạn', 
+              ),
+              const FoodList(),
+              Heading(
+                text: 'Món gần bạn',
                 onTap: () {
                   Get.to(() => const FoodNearYouPage(),
-                  transition: Transition.cupertino,
-                  duration: const Duration(milliseconds: 400));
+                      transition: Transition.cupertino,
+                      duration: const Duration(milliseconds: 300));
                 },
-                ),
-
-                Heading(
-                text: 'Đồ uống nổi bật', 
+              ),
+              const FoodList(),
+              Heading(
+                text: 'Đồ uống nổi bật',
                 onTap: () {
                   Get.to(() => const OutstandingDrinksPage(),
-                  transition: Transition.cupertino,
-                  duration: const Duration(milliseconds: 400));
+                      transition: Transition.cupertino,
+                      duration: const Duration(milliseconds: 300));
                 },
-                ),
-                Heading(
-                text: 'Đồ uống gần bạn', 
+              ),
+              Heading(
+                text: 'Đồ uống gần bạn',
                 onTap: () {
                   Get.to(() => const DrinksNearYouPage(),
-                  transition: Transition.cupertino,
-                  duration: const Duration(milliseconds: 400));
+                      transition: Transition.cupertino,
+                      duration: const Duration(milliseconds: 300));
                 },
-                ),
+              ),
             ],
           )),
         ));

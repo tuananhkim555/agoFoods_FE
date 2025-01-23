@@ -12,7 +12,7 @@ class CategoryList extends StatelessWidget {
   Widget build(BuildContext context) {
     return Container(
       height: 75.h,
-      padding: EdgeInsets.only(left: 12.w, top: 10.h),
+      padding: EdgeInsets.only(left: 12.w),
       child: ListView(
         scrollDirection: Axis.horizontal,
         children: List.generate(categories.length, (i) {

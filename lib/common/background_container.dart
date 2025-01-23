@@ -20,7 +20,7 @@ class BackgroundContainer extends StatelessWidget {
             topRight: Radius.circular(20.r),
           ),
           image: const DecorationImage(
-            image: AssetImage("assets/images/icons.png"),
+            image: AssetImage("assets/images/bgCategory.png"),
             fit: BoxFit.cover,
             opacity: .7,
           )),

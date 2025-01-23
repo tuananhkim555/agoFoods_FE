@@ -8,6 +8,8 @@ class ReusableText extends StatelessWidget {
   final FontWeight? fontWeight;
   final TextStyle? style;
   final TextAlign? textAlign;
+  final int? maxLines;
+  final TextOverflow? overflow;
 
   const ReusableText({
     super.key,
@@ -17,6 +19,8 @@ class ReusableText extends StatelessWidget {
     this.fontWeight,
     this.style,
     this.textAlign,
+    this.maxLines = 1,
+    this.overflow = TextOverflow.ellipsis,
   });
 
   @override
@@ -24,6 +28,8 @@ class ReusableText extends StatelessWidget {
     return Text(
       text,
       textAlign: textAlign,
+      maxLines: maxLines,
+      overflow: overflow,
       style: style ??
           TextStyle(
             fontSize: fontSize?.sp ?? 14.sp,

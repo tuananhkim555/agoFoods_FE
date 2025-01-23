@@ -1,7 +1,11 @@
 import 'package:agofoods/common/app_style.dart';
+import 'package:agofoods/common/background_container.dart';
 import 'package:agofoods/common/reusable_text.dart';
 import 'package:agofoods/constants/constants.dart';
+import 'package:agofoods/constants/uidata.dart';
+import 'package:agofoods/views/home/widgets/food_title.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 
 class FoodNewPage extends StatelessWidget {
   const FoodNewPage({super.key});
@@ -9,15 +13,25 @@ class FoodNewPage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return  Scaffold(
+      backgroundColor: kPrimary,
       appBar: AppBar(
-        elevation: 0.3,
-        backgroundColor: kOffWhite,
-        title: ReusableText(text: "Món mới",
-        style: appStyle(13, kGray, FontWeight.w600),
+        elevation: 0,
+        backgroundColor: kPrimary,
+        title: ReusableText(text: "MÓN MỚI",
+        style: appStyle(13, kWhite, FontWeight.w600),
         ),
       ),
-      body: const Center(
-        child: Text('Món mới'),
+      body: BackgroundContainer(
+        color: Colors.white,
+        child: Padding(
+          padding: EdgeInsets.all(12.h),
+          child: ListView(
+            children: List.generate(foods.length, (i) {
+              var food = foods[i];
+              return FoodTitle(foods: food);
+            }),
+          ),
+        ),
       ),
     );
   }

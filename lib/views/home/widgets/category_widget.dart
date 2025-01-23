@@ -25,11 +25,11 @@ class CategoryWidget extends StatelessWidget {
         if (controller.categoryValue == category['_id']) {
           controller.updateCategory = '';
           controller.updateTitle = '';
-        } else if (category['value'] == 'tat_ca_mon') {
+        } else if (category['value'] == 'tat_ca') {
           Get.to(
             () => const AllCategories(),
             transition: Transition.fadeIn,
-            duration: const Duration(milliseconds: 400),
+            duration: const Duration(milliseconds: 300),
           );
           controller.updateTitle = category['title'];
         } else {
@@ -62,9 +62,9 @@ class CategoryWidget extends StatelessWidget {
                 SizedBox(height: 5.h),
                 ReusableText(
                   text: category['title'],
-                  style: appStyle(12, kDark, FontWeight.normal),
+                  style: appStyle(12, kGrayDark, FontWeight.normal),
                   fontSize: 12,
-                  color: kDark,
+                  color: kGrayDark,
                 ),
               ],
             ),
