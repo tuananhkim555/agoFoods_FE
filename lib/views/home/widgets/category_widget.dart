@@ -4,10 +4,12 @@ import 'package:agofoods/common/app_style.dart';
 import 'package:agofoods/common/reusable_text.dart';
 import 'package:agofoods/constants/constants.dart';
 import 'package:agofoods/controllers/category_controller.dart';
+import 'package:agofoods/models/categories.dart';
 import 'package:agofoods/views/categories/all_categories.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:get/get.dart';
+
 
 class CategoryWidget extends StatelessWidget {
   const CategoryWidget({
@@ -15,26 +17,25 @@ class CategoryWidget extends StatelessWidget {
     required this.category,
   });
 
-  final Map<String, dynamic> category;
-
+  final CategoriesModel category;  
+  
   @override
   Widget build(BuildContext context) {
     final controller = Get.put(CategoryController());
     return GestureDetector(
       onTap: () {
-        if (controller.categoryValue == category['_id']) {
+        if (controller.categoryValue == category.id) {
           controller.updateCategory = '';
           controller.updateTitle = '';
-        } else if (category['value'] == 'tat_ca') {
+        } else if (category.value == 'tat_ca') {
           Get.to(
             () => const AllCategories(),
             transition: Transition.fadeIn,
             duration: const Duration(milliseconds: 300),
           );
-          controller.updateTitle = category['title'];
         } else {
-          controller.updateCategory = category['_id'];
-          controller.updateTitle = category['title'];
+          controller.updateCategory = category.id;
+          controller.updateTitle = category.title;
         }
       },
       child: Obx(() => Container(
@@ -44,7 +45,7 @@ class CategoryWidget extends StatelessWidget {
             decoration: BoxDecoration(
               borderRadius: BorderRadius.circular(10.r),
               border: Border.all(
-                color: controller.categoryValue == category['_id']
+                color: controller.categoryValue == category.id
                     ? kSecondary
                     : kOffWhite,
                 width: .5.w,
@@ -55,13 +56,13 @@ class CategoryWidget extends StatelessWidget {
                 SizedBox(
                   height: 35.h,
                   child: Image.network(
-                    category['imageUrl'],
+                    category.imageUrl,
                     fit: BoxFit.contain,
                   ),
                 ),
                 SizedBox(height: 5.h),
                 ReusableText(
-                  text: category['title'],
+                  text: category.title,
                   style: appStyle(12, kGrayDark, FontWeight.normal),
                   fontSize: 12,
                   color: kGrayDark,

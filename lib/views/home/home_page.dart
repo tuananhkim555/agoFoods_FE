@@ -8,7 +8,7 @@ import 'package:agofoods/views/home/outstanding_dish_page.dart';
 import 'package:agofoods/views/home/outstanding_drinks_page.dart';
 import 'package:agofoods/views/home/widgets/category_list.dart';
 import 'package:agofoods/views/home/widgets/food_list.dart';
-import 'package:agofoods/views/home/widgets/outstanding_dish_list.dart';
+import 'package:agofoods/views/home/widgets/nearby_restaurants_list.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:agofoods/common/custom_appbar.dart';
@@ -47,7 +47,7 @@ class HomePage extends StatelessWidget {
                       duration: const Duration(milliseconds: 300));
                 },
               ),
-              const OutstandingDishList(),
+              const NearbyRestaurants(),
               Heading(
                 text: 'Món mới',
                 onTap: () {

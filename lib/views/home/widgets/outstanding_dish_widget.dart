@@ -5,8 +5,8 @@ import 'package:flutter/material.dart';
 import 'package:flutter_rating_bar/flutter_rating_bar.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
-class OutstandingDishWidget extends StatelessWidget {
-  const OutstandingDishWidget(
+class RestaurantWidget extends StatelessWidget {
+  const RestaurantWidget(
       {super.key,
       required this.image,
       required this.logo,

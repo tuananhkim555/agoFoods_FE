@@ -4,7 +4,6 @@ import 'package:agofoods/common/reusable_text.dart';
 import 'package:agofoods/constants/constants.dart';
 import 'package:agofoods/constants/uidata.dart';
 import 'package:agofoods/views/home/widgets/food_title.dart';
-import 'package:agofoods/views/home/widgets/outstanding_title.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 

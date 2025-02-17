@@ -1,6 +1,7 @@
 import 'package:agofoods/common/app_style.dart';
 import 'package:agofoods/common/reusable_text.dart';
 import 'package:agofoods/constants/constants.dart';
+import 'package:agofoods/models/categories.dart';
 import 'package:agofoods/views/categories/category_page.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
@@ -14,7 +15,7 @@ class CategoryTile extends StatelessWidget {
     required Color textColor,
   });
 
-  var category;
+  CategoriesModel category;
 
   @override
   Widget build(BuildContext context) {
@@ -30,12 +31,12 @@ class CategoryTile extends StatelessWidget {
         radius: 18.r,
         backgroundColor: kGrayLight,
         child: Image.network(
-          category["imageUrl"],
+          category.imageUrl,
           fit: BoxFit.contain,
         ),
       ),
       title: ReusableText(
-        text: category["title"],
+        text: category.title,
         style: appStyle(12, kGrayDark, FontWeight.w500),
       ),
       trailing: Icon(

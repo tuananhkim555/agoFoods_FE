@@ -6,7 +6,7 @@ List<dynamic> categories = [
     'title': 'Cơm tấm',
     'value': 'com_tam',
     'imageUrl':
-        'https://res.cloudinary.com/ddaofgdke/image/upload/v1737427042/images/jmqwfv4zigcufatfakda.png',
+        'https://res.cloudinary.com/agofoods/image/upload/v1737427042/images/jmqwfv4zigcufatfakda.png',
     'createdAt': '2025-01-18T00:00:00.000Z',
     'updatedAt': '2025-01-18T00:00:00.000Z',
     '_v': 0,
@@ -16,7 +16,7 @@ List<dynamic> categories = [
     'title': 'Lẩu',
     'value': 'mon_lau',
     'imageUrl':
-        'https://res.cloudinary.com/ddaofgdke/image/upload/v1737428014/images/h7r1dkpzpqaqj6apbaml.png',
+        'https://res.cloudinary.com/agofoods/image/upload/v1737428014/images/h7r1dkpzpqaqj6apbaml.png',
     'createdAt': '2025-01-18T00:00:00.000Z',
     'updatedAt': '2025-01-18T00:00:00.000Z',
     '_v': 0,
@@ -26,7 +26,7 @@ List<dynamic> categories = [
     'title': 'Bánh mì',
     'value': 'banh_mi',
     'imageUrl':
-        'https://res.cloudinary.com/ddaofgdke/image/upload/v1737428357/images/gh926auyztii2cvhyw8b.png',
+        'https://res.cloudinary.com/agofoods/image/upload/v1737428357/images/gh926auyztii2cvhyw8b.png',
     'createdAt': '2025-01-18T00:00:00.000Z',
     'updatedAt': '2025-01-18T00:00:00.000Z',
     '_v': 0,
@@ -36,7 +36,7 @@ List<dynamic> categories = [
     'title': 'Pizza',
     'value': 'pizza',
     'imageUrl':
-        'https://res.cloudinary.com/ddaofgdke/image/upload/v1737441900/images/figkuplczokv5euzei3i.png',
+        'https://res.cloudinary.com/agofoods/image/upload/v1737441900/images/figkuplczokv5euzei3i.png',
     'createdAt': '2025-01-18T00:00:00.000Z',
     'updatedAt': '2025-01-18T00:00:00.000Z',
     '_v': 0,
@@ -46,7 +46,7 @@ List<dynamic> categories = [
     'title': 'Đồ chiên',
     'value': 'do_chien',
     'imageUrl':
-        'https://res.cloudinary.com/ddaofgdke/image/upload/v1737429079/images/vdenikkwpguy3ohvaege.png',
+        'https://res.cloudinary.com/agofoods/image/upload/v1737429079/images/vdenikkwpguy3ohvaege.png',
     'createdAt': '2025-01-18T00:00:00.000Z',
     'updatedAt': '2025-01-18T00:00:00.000Z',
     '_v': 0,
@@ -56,7 +56,7 @@ List<dynamic> categories = [
     'title': 'Phở & Bún',
     'value': 'pho_bun',
     'imageUrl':
-        'https://res.cloudinary.com/ddaofgdke/image/upload/v1737429347/images/psaji5zrg53ju9tau23g.png',
+        'https://res.cloudinary.com/agofoods/image/upload/v1737429347/images/psaji5zrg53ju9tau23g.png',
     'createdAt': '2025-01-18T00:00:00.000Z',
     'updatedAt': '2025-01-18T00:00:00.000Z',
     '_v': 0,
@@ -66,7 +66,7 @@ List<dynamic> categories = [
     'title': 'Hải sản',
     'value': 'hai_san',
     'imageUrl':
-        'https://res.cloudinary.com/ddaofgdke/image/upload/v1737442157/images/dsgfcajzbagd2xbkqpvs.png',
+        'https://res.cloudinary.com/agofoods/image/upload/v1737442157/images/dsgfcajzbagd2xbkqpvs.png',
     'createdAt': '2025-01-18T00:00:00.000Z',
     'updatedAt': '2025-01-18T00:00:00.000Z',
     '_v': 0,
@@ -76,7 +76,7 @@ List<dynamic> categories = [
     'title': 'Ốc',
     'value': 'oc',
     'imageUrl':
-        'https://res.cloudinary.com/ddaofgdke/image/upload/v1737442543/images/yxnsznhgqyvaxoobbeii.png',
+        'https://res.cloudinary.com/agofoods/image/upload/v1737442543/images/yxnsznhgqyvaxoobbeii.png',
     'createdAt': '2025-01-18T00:00:00.000Z',
     'updatedAt': '2025-01-18T00:00:00.000Z',
     '_v': 0,
@@ -86,7 +86,7 @@ List<dynamic> categories = [
     'title': 'Mỳ cay',
     'value': 'my_cay',
     'imageUrl':
-        'https://res.cloudinary.com/ddaofgdke/image/upload/v1737429720/images/ldhd5x3y2tfinawn49gi.png',
+        'https://res.cloudinary.com/agofoods/image/upload/v1737429720/images/ldhd5x3y2tfinawn49gi.png',
     'createdAt': '2025-01-18T00:00:00.000Z',
     'updatedAt': '2025-01-18T00:00:00.000Z',
     '_v': 0,
@@ -96,7 +96,7 @@ List<dynamic> categories = [
     'title': 'Mỳ xào',
     'value': 'my_xao',
     'imageUrl':
-        'https://res.cloudinary.com/ddaofgdke/image/upload/v1737429736/images/oq2yyf0b1ulemlkcblxb.png',
+        'https://res.cloudinary.com/agofoods/image/upload/v1737429736/images/oq2yyf0b1ulemlkcblxb.png',
     'createdAt': '2025-01-18T00:00:00.000Z',
     'updatedAt': '2025-01-18T00:00:00.000Z',
     '_v': 0,
@@ -106,7 +106,7 @@ List<dynamic> categories = [
     'title': 'Đồ nướng',
     'value': 'do_nuong',
     'imageUrl':
-        'https://res.cloudinary.com/ddaofgdke/image/upload/v1737432755/images/nb8oyzcqdqwgsxk6fcpr.png',
+        'https://res.cloudinary.com/agofoods/image/upload/v1737432755/images/nb8oyzcqdqwgsxk6fcpr.png',
     'createdAt': '2025-01-18T00:00:00.000Z',
     'updatedAt': '2025-01-18T00:00:00.000Z',
     '_v': 0,
@@ -116,7 +116,7 @@ List<dynamic> categories = [
     'title': 'Bún đậu',
     'value': 'bun_dau_mam_tom',
     'imageUrl':
-        'https://res.cloudinary.com/ddaofgdke/image/upload/v1737431326/images/iozdvnzp3vyj8poonmlu.png',
+        'https://res.cloudinary.com/agofoods/image/upload/v1737431326/images/iozdvnzp3vyj8poonmlu.png',
     'createdAt': '2025-01-18T00:00:00.000Z',
     'updatedAt': '2025-01-18T00:00:00.000Z',
     '_v': 0,
@@ -126,7 +126,7 @@ List<dynamic> categories = [
     'title': 'Đồ xào',
     'value': 'do_xao',
     'imageUrl':
-        'https://res.cloudinary.com/ddaofgdke/image/upload/v1737443144/images/gzl4q050lf575upu29ll.png',
+        'https://res.cloudinary.com/agofoods/image/upload/v1737443144/images/gzl4q050lf575upu29ll.png',
     'createdAt': '2025-01-18T00:00:00.000Z',
     'updatedAt': '2025-01-18T00:00:00.000Z',
     '_v': 0,
@@ -136,7 +136,7 @@ List<dynamic> categories = [
     'title': 'Bánh ngọt',
     'value': 'banh_ngot',
     'imageUrl':
-        'https://res.cloudinary.com/ddaofgdke/image/upload/v1737433010/images/oq1soepa6xt0yi3f2swx.png',
+        'https://res.cloudinary.com/agofoods/image/upload/v1737433010/images/oq1soepa6xt0yi3f2swx.png',
     'createdAt': '2025-01-18T00:00:00.000Z',
     'updatedAt': '2025-01-18T00:00:00.000Z',
     '_v': 0,
@@ -146,7 +146,7 @@ List<dynamic> categories = [
     'title': 'Cafe',
     'value': 'cafe',
     'imageUrl':
-        'https://res.cloudinary.com/ddaofgdke/image/upload/v1737432743/images/ann8qd5s7iqzc4bjxiec.png',
+        'https://res.cloudinary.com/agofoods/image/upload/v1737432743/images/ann8qd5s7iqzc4bjxiec.png',
     'createdAt': '2025-01-18T00:00:00.000Z',
     'updatedAt': '2025-01-18T00:00:00.000Z',
     '_v': 0,
@@ -156,7 +156,7 @@ List<dynamic> categories = [
     'title': 'Trà sữa',
     'value': 'tra_sua',
     'imageUrl':
-        'https://res.cloudinary.com/ddaofgdke/image/upload/v1737432718/images/obg5xrqsowxm1ag9aamm.png',
+        'https://res.cloudinary.com/agofoods/image/upload/v1737432718/images/obg5xrqsowxm1ag9aamm.png',
     'createdAt': '2025-01-18T00:00:00.000Z',
     'updatedAt': '2025-01-18T00:00:00.000Z',
     '_v': 0,
@@ -166,7 +166,7 @@ List<dynamic> categories = [
     'title': 'Sinh tố',
     'value': 'sinh_to',
     'imageUrl':
-        'https://res.cloudinary.com/ddaofgdke/image/upload/v1737432734/images/eia1tkc2ojqieldujuu3.png',
+        'https://res.cloudinary.com/agofoods/image/upload/v1737432734/images/eia1tkc2ojqieldujuu3.png',
     'createdAt': '2025-01-18T00:00:00.000Z',
     'updatedAt': '2025-01-18T00:00:00.000Z',
     '_v': 0,
@@ -176,7 +176,7 @@ List<dynamic> categories = [
     'title': 'Tất cả',
     'value': 'tat_ca',
     'imageUrl':
-        'https://res.cloudinary.com/ddaofgdke/image/upload/v1737431732/images/nasrwhzfrjqncelly7sr.png',
+        'https://res.cloudinary.com/agofoods/image/upload/v1737431732/images/nasrwhzfrjqncelly7sr.png',
     'createdAt': '2025-01-18T00:00:00.000Z',
     'updatedAt': '2025-01-18T00:00:00.000Z',
     '_v': 0,
@@ -205,11 +205,11 @@ List<dynamic> restaurants = [
     'time': '6:00 - 22:00',
     'value': 'do_chien',
     'imageUrl':
-        'https://res.cloudinary.com/ddaofgdke/image/upload/v1737373445/images/gzzrgbeqf9kl4q9yxeeh.jpg',
+        'https://res.cloudinary.com/agofoods/image/upload/v1737373445/images/gzzrgbeqf9kl4q9yxeeh.jpg',
     'owner': '12345akv6343dsbxcz3456',
     'code': '1234523456',
     'logoUrl':
-        'https://res.cloudinary.com/ddaofgdke/image/upload/v1737379545/images/nhwvox2ryniep1cfszh8.png',
+        'https://res.cloudinary.com/agofoods/image/upload/v1737379545/images/nhwvox2ryniep1cfszh8.png',
     'price': formatPriceVND(550000),
     'rating': 5,
     'ratingCount': 100,
@@ -233,11 +233,11 @@ List<dynamic> restaurants = [
     'time': '6:00 - 22:00',
     'value': 'bun_dau_mam_tom',
     'imageUrl':
-        'https://res.cloudinary.com/ddaofgdke/image/upload/v1737373387/images/gewcfwuxl9v78bk4byfb.jpg',
+        'https://res.cloudinary.com/agofoods/image/upload/v1737373387/images/gewcfwuxl9v78bk4byfb.jpg',
     'owner': '12345akv6343dsbxcz3456',
     'code': '1234563434',
     'logoUrl':
-        'https://res.cloudinary.com/ddaofgdke/image/upload/v1737379545/images/nhwvox2ryniep1cfszh8.png',
+        'https://res.cloudinary.com/agofoods/image/upload/v1737379545/images/nhwvox2ryniep1cfszh8.png',
     'price': formatPriceVND(350000),
     'rating': 5,
     'ratingCount': 100,
@@ -261,11 +261,11 @@ List<dynamic> restaurants = [
     'time': '6:00 - 22:00',
     'value': 'banh_mi',
     'imageUrl':
-        'https://res.cloudinary.com/ddaofgdke/image/upload/v1737373364/images/cg84fygdyh0l9tpioss8.jpg',
+        'https://res.cloudinary.com/agofoods/image/upload/v1737373364/images/cg84fygdyh0l9tpioss8.jpg',
     'owner': '12345akv6343dsbxcz3456',
     'code': '1234564567',
     'logoUrl':
-        'https://res.cloudinary.com/ddaofgdke/image/upload/v1737379545/images/nhwvox2ryniep1cfszh8.png',
+        'https://res.cloudinary.com/agofoods/image/upload/v1737379545/images/nhwvox2ryniep1cfszh8.png',
     'price': formatPriceVND(150000),
     'rating': 5,
     'ratingCount': 200,
@@ -308,7 +308,7 @@ List<dynamic> foods = [
       {"id": 5, "title": "Cơm Bò", "price": formatPriceVND(45000)},
     ],
     'imageUrl':
-        'https://res.cloudinary.com/ddaofgdke/image/upload/v1737441186/images/wrgaldq1xw8bdvf0fv5g.jpg',
+        'https://res.cloudinary.com/agofoods/image/upload/v1737441186/images/wrgaldq1xw8bdvf0fv5g.jpg',
     "__v": 0,
     "category": "com_tam",
     "createdAt": "2025-01-18T00:00:00.000Z",
@@ -337,7 +337,7 @@ List<dynamic> foods = [
       {"id": 5, "title": "Pizza Bò", "price": formatPriceVND(45000)},
     ],
     'imageUrl':
-        'https://res.cloudinary.com/ddaofgdke/image/upload/v1737442681/images/uz5rie2auwzbnlee8ddi.jpg',
+        'https://res.cloudinary.com/agofoods/image/upload/v1737442681/images/uz5rie2auwzbnlee8ddi.jpg',
     "__v": 0,
     "category": "pizza",
     "createdAt": "2025-01-18T00:00:00.000Z",
@@ -366,7 +366,7 @@ List<dynamic> foods = [
       {"id": 5, "title": "Mỳ cay bò", "price": formatPriceVND(45000)},
     ],
     'imageUrl':
-        'https://res.cloudinary.com/ddaofgdke/image/upload/v1737442915/images/wczclokuewzm2zjhditv.jpg',
+        'https://res.cloudinary.com/agofoods/image/upload/v1737442915/images/wczclokuewzm2zjhditv.jpg',
     "__v": 0,
     "category": "my_cay",
     "createdAt": "2025-01-18T00:00:00.000Z",
