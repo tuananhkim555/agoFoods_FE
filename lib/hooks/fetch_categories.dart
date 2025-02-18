@@ -5,8 +5,6 @@ import 'package:flutter_hooks/flutter_hooks.dart';
 import 'package:http/http.dart' as http;
 import 'package:agofoods/constants/constants.dart';
 import 'package:agofoods/models/categories.dart';
-import 'package:agofoods/Utils/auth_utils.dart' as utils_upper;
-import 'package:agofoods/utils/auth_utils.dart' as utils_lower;
 
 FetchHook useFetchCategories() {
   final categoriesItems = useState<List<CategoriesModel>?>(null);

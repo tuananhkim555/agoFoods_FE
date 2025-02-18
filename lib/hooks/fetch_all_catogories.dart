@@ -8,6 +8,7 @@ import 'package:agofoods/models/categories.dart';
 import 'package:agofoods/Utils/auth_utils.dart' as utils_upper;
 import 'package:agofoods/utils/auth_utils.dart' as utils_lower;
 
+
 FetchHook useFetchAllCategories() {
   final categoriesItems = useState<List<CategoriesModel>?>(null);
   final isLoading = useState<bool>(false);

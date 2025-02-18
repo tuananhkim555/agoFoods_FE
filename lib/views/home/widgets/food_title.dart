@@ -2,6 +2,7 @@ import 'package:agofoods/common/app_style.dart';
 import 'package:agofoods/common/reusable_text.dart';
 import 'package:agofoods/constants/constants.dart';
 import 'package:agofoods/constants/uidata.dart';
+import 'package:agofoods/models/foods_model.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_boxicons/flutter_boxicons.dart';
 import 'package:flutter_rating_bar/flutter_rating_bar.dart';
@@ -10,7 +11,7 @@ import 'package:flutter_screenutil/flutter_screenutil.dart';
 class FoodTitle extends StatelessWidget {
   const FoodTitle({super.key, required this.foods});
 
-  final dynamic foods;
+  final FoodsModel foods;
 
   @override
   Widget build(BuildContext context) {
@@ -40,7 +41,7 @@ class FoodTitle extends StatelessWidget {
                           width: 70.w,
                           height: 70.h,
                           child: Image.network(
-                            foods['imageUrl'],
+                            foods.imageUrl[0],
                             fit: BoxFit.cover,
                           ),
                         ),
@@ -71,11 +72,11 @@ class FoodTitle extends StatelessWidget {
                     crossAxisAlignment: CrossAxisAlignment.start,
                     children: [
                       ReusableText(
-                        text: foods['title'],
+                        text: foods.title,
                         style: appStyle(11, kGrayDark, FontWeight.w500),
                       ),
                       ReusableText(
-                        text: "Quán làm trong: ${foods['time']}",
+                        text: "Quán làm trong: ${foods.time}",
                         style: appStyle(11, kGreen, FontWeight.bold),
                       ),
                       SizedBox(
@@ -83,9 +84,9 @@ class FoodTitle extends StatelessWidget {
                         height: 16.h,
                         child: ListView.builder(
                             scrollDirection: Axis.horizontal,
-                            itemCount: foods['additives'].length,
+                            itemCount: foods.additives.length,
                             itemBuilder: (context, i) {
-                              var additive = foods['additives'][i];
+                              var additive = foods.additives[i];
                               return Container(
                                 margin: EdgeInsets.only(right: 5.w),
                                 padding: EdgeInsets.symmetric(horizontal: 4.w),
@@ -98,7 +99,7 @@ class FoodTitle extends StatelessWidget {
                                   child: Padding(
                                     padding: EdgeInsets.all(2.h),
                                     child: ReusableText(
-                                      text: additive['title'],
+                                      text: additive.title,
                                       style: appStyle(
                                           8, kGrayDark, FontWeight.w500),
                                     ),
@@ -125,7 +126,7 @@ class FoodTitle extends StatelessWidget {
               ),
               child: Center(
                 child: ReusableText(
-                  text: formatPriceVND(foods['price'] ?? 0.0),
+                  text: formatPriceVND(foods.price ?? 0.0),
                   style: appStyle(12, kLightWhite, FontWeight.bold),
                 ),
               ),

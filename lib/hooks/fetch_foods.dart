@@ -1,15 +1,17 @@
 import 'dart:convert';
 import 'package:agofoods/Utils/auth_utils.dart';
+import 'package:agofoods/models/foods_model.dart';
+import 'package:agofoods/models/hook_models/api_error.dart';
 import 'package:agofoods/models/hook_models/hook_result.dart';
-import 'package:agofoods/models/restaurants_model.dart';
 import 'package:flutter_hooks/flutter_hooks.dart';
 import 'package:http/http.dart' as http;
 import 'package:agofoods/constants/constants.dart';
 
-FetchHook useFetchAllRestaurants(String code) {
-  final restaurants = useState<List<RestaurantsModel>?>(null);
+FetchHook<List<FoodsModel>> useFetchAllFoods(String code) {
+  final foods = useState<List<FoodsModel>?>(null);
   final isLoading = useState<bool>(false);
   final error = useState<Exception?>(null);
+  final apiError = useState<ApiError?>(null);
 
   Future<void> fetchData() async {
     isLoading.value = true;
@@ -19,9 +21,9 @@ FetchHook useFetchAllRestaurants(String code) {
       print('Access Token: $accessToken'); // Log access token
 
       // Fetch data from the API
-      final url = Uri.parse('$appBaseUrl/api/restaurants/all/$code');
+      Uri uri = Uri.parse('$appBaseUrl/api/foods/random/$code');
       final response = await http.get(
-        url,
+        uri,
         headers: {'Authorization': 'Bearer $accessToken'},
       );
 
@@ -32,16 +34,13 @@ FetchHook useFetchAllRestaurants(String code) {
       if (response.statusCode == 200) {
         final jsonResponse = jsonDecode(response.body);
 
-        // Correctly access the nested `allNearByRestaurants` list
-        final List<dynamic>? allNearByRestaurants =
-            jsonResponse['metaData']['metaData']['allNearByRestaurants'] as List<dynamic>?;
+        // Correctly access the nested `data` list
+        final List? foodsList = jsonResponse['metaData']['data'] as List?;
 
-        if (allNearByRestaurants != null) {
-          restaurants.value = allNearByRestaurants
-              .map((json) => RestaurantsModel.fromJson(json))
-              .toList();
+        if (foodsList != null) {
+          foods.value = foodsList.map((json) => FoodsModel.fromJson(json)).toList();
         } else {
-          restaurants.value = [];
+          foods.value = [];
         }
       } else {
         throw Exception('Failed to load data: ${response.statusCode}');
@@ -60,14 +59,15 @@ FetchHook useFetchAllRestaurants(String code) {
   }, []);
 
   void refetch() async {
-    restaurants.value = null;
+    foods.value = null;
     isLoading.value = true;
     error.value = null;
+    apiError.value = null;
     await fetchData();
   }
 
-  return FetchHook(
-    data: restaurants.value,
+  return FetchHook<List<FoodsModel>>(
+    data: foods.value ?? [],
     isLoading: isLoading.value,
     error: error.value,
     refetch: refetch,

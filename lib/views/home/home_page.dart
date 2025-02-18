@@ -3,8 +3,8 @@ import 'package:agofoods/common/heading.dart';
 import 'package:agofoods/constants/constants.dart';
 import 'package:agofoods/views/home/drinks_near_you_page.dart';
 import 'package:agofoods/views/home/food_near_you_page.dart';
-import 'package:agofoods/views/home/food_new_page.dart';
-import 'package:agofoods/views/home/outstanding_dish_page.dart';
+import 'package:agofoods/views/home/recomentdations_foods_page.dart';
+import 'package:agofoods/views/home/all_narby_restaurants.dart';
 import 'package:agofoods/views/home/outstanding_drinks_page.dart';
 import 'package:agofoods/views/home/widgets/category_list.dart';
 import 'package:agofoods/views/home/widgets/food_list.dart';
@@ -40,18 +40,18 @@ class HomePage extends StatelessWidget {
             children: [
               const CategoryList(),
               Heading(
-                text: 'Món ăn nổi bật',
+                text: 'Nhà hàng nổi bật',
                 onTap: () {
-                  Get.to(() => const OutstandingDish(),
+                  Get.to(() => const AllNarbyRestaurants(),
                       transition: Transition.cupertino,
                       duration: const Duration(milliseconds: 300));
                 },
               ),
               const NearbyRestaurants(),
               Heading(
-                text: 'Món mới',
+                text: 'Món đề cử',
                 onTap: () {
-                  Get.to(() => const FoodNewPage(),
+                  Get.to(() => const RecomentdationsFoodsPage(),
                       transition: Transition.cupertino,
                       duration: const Duration(milliseconds: 300));
                 },

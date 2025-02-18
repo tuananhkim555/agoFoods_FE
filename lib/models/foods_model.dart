@@ -1,6 +1,4 @@
-import 'dart:convert';
-
-class Food {
+class FoodsModel {
   final String id;
   final String restaurantId;
   final String title;
@@ -8,9 +6,9 @@ class Food {
   final double price;
   final String? description;
   final String categoryId;
-  final List<String> foodTypes;
-  final List<String> foodTags;
-  final List<dynamic> additives; // Có thể cần ánh xạ thêm nếu có model Additives
+  final List<FoodTypeModel> foodTypes;
+  final List<FoodTagModel> foodTags;
+  final List<AdditiveModel> additives;
   final String code;
   final double rating;
   final int ratingCount;
@@ -21,7 +19,7 @@ class Food {
   final DateTime createdAt;
   final DateTime updatedAt;
 
-  Food({
+  FoodsModel({
     required this.id,
     required this.restaurantId,
     required this.title,
@@ -43,59 +41,105 @@ class Food {
     required this.updatedAt,
   });
 
-  factory Food.fromJson(Map<String, dynamic> json) {
-    return Food(
-      id: json['id'] as String,
-      restaurantId: json['restaurantId'] as String,
-      title: json['title'] as String,
-      time: json['time'] as String,
-      price: json['price'] as double,
-      description: json['description'] as String?,
-      categoryId: json['categoryId'] as String,
-      foodTypes: List<String>.from(json['foodTypes']),
-      foodTags: List<String>.from(json['foodTags']),
-      additives: json['additives'] as List<dynamic>,
-      code: json['code'] as String,
-      rating: json['rating'] as double,
-      ratingCount: json['ratingCount'] as int,
-      imageUrl: List<String>.from(json['imageUrl']),
-      isAvailable: json['isAvailable'] as bool,
-      quantity: json['quantity'] as int,
-      status: json['status'] as bool,
+  factory FoodsModel.fromJson(Map<String, dynamic> json) {
+    return FoodsModel(
+      id: json['id'],
+      restaurantId: json['restaurantId'],
+      title: json['title'],
+      time: json['time'],
+      price: (json['price'] as num).toDouble(),
+      description: json['description'],
+      categoryId: json['categoryId'],
+      foodTypes: (json['foodTypes'] as List)
+          .map((item) => FoodTypeModel.fromJson(item))
+          .toList(),
+      foodTags: (json['foodTags'] as List)
+          .map((item) => FoodTagModel.fromJson(item))
+          .toList(),
+      additives: (json['additives'] as List)
+          .map((item) => AdditiveModel.fromJson(item))
+          .toList(),
+      code: json['code'],
+      rating: (json['rating'] as num).toDouble(),
+      ratingCount: json['ratingCount'],
+      imageUrl: (json['imageUrl'] as List).cast<String>(),
+      isAvailable: json['isAvailable'],
+      quantity: json['quantity'],
+      status: json['status'],
       createdAt: DateTime.parse(json['createdAt']),
       updatedAt: DateTime.parse(json['updatedAt']),
     );
   }
+}
 
-  Map<String, dynamic> toJson() {
-    return {
-      'id': id,
-      'restaurantId': restaurantId,
-      'title': title,
-      'time': time,
-      'price': price,
-      'description': description,
-      'categoryId': categoryId,
-      'foodTypes': foodTypes,
-      'foodTags': foodTags,
-      'additives': additives,
-      'code': code,
-      'rating': rating,
-      'ratingCount': ratingCount,
-      'imageUrl': imageUrl,
-      'isAvailable': isAvailable,
-      'quantity': quantity,
-      'status': status,
-      'createdAt': createdAt.toIso8601String(),
-      'updatedAt': updatedAt.toIso8601String(),
-    };
+class FoodTagModel {
+  final String id;
+  final String name;
+  final DateTime createdAt;
+  final DateTime updatedAt;
+
+  FoodTagModel({
+    required this.id,
+    required this.name,
+    required this.createdAt,
+    required this.updatedAt,
+  });
+
+  factory FoodTagModel.fromJson(Map<String, dynamic> json) {
+    return FoodTagModel(
+      id: json['id'],
+      name: json['name'],
+      createdAt: DateTime.parse(json['createdAt']),
+      updatedAt: DateTime.parse(json['updatedAt']),
+    );
   }
 }
 
-// Hàm tiện ích để chuyển đổi danh sách JSON thành danh sách Food
-List<Food> foodsModelFromJson(String str) =>
-    List<Food>.from(json.decode(str).map((x) => Food.fromJson(x)));
+class FoodTypeModel {
+  final String id;
+  final String name;
+  final DateTime createdAt;
+  final DateTime updatedAt;
 
-// Hàm tiện ích để chuyển đổi danh sách Food thành JSON
-String foodsModelToJson(List<Food> data) =>
-    json.encode(List<dynamic>.from(data.map((x) => x.toJson())));
+  FoodTypeModel({
+    required this.id,
+    required this.name,
+    required this.createdAt,
+    required this.updatedAt,
+  });
+
+  factory FoodTypeModel.fromJson(Map<String, dynamic> json) {
+    return FoodTypeModel(
+      id: json['id'],
+      name: json['name'],
+      createdAt: DateTime.parse(json['createdAt']),
+      updatedAt: DateTime.parse(json['updatedAt']),
+    );
+  }
+}
+
+class AdditiveModel {
+  final String id;
+  final String title;
+  final double price;
+  final DateTime createdAt;
+  final DateTime updatedAt;
+
+  AdditiveModel({
+    required this.id,
+    required this.title,
+    required this.price,
+    required this.createdAt,
+    required this.updatedAt,
+  });
+
+  factory AdditiveModel.fromJson(Map<String, dynamic> json) {
+    return AdditiveModel(
+      id: json['id'],
+      title: json['title'],
+      price: (json['price'] as num).toDouble(),
+      createdAt: DateTime.parse(json['createdAt']),
+      updatedAt: DateTime.parse(json['updatedAt']),
+    );
+  }
+}

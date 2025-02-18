@@ -1,17 +1,16 @@
 
-import 'package:agofoods/models/categories.dart';
-import 'package:flutter/material.dart';
+import 'dart:ui';
 
-class FetchHook {
-  final List<CategoriesModel>? data;
+class FetchHook<T> {
+  final T data;
   final bool isLoading;
   final Exception? error;
-  final VoidCallback? refetch;
+  final VoidCallback refetch;
 
   FetchHook({
     required this.data,
     required this.isLoading,
-    this.error,
-    this.refetch,
+    required this.error,
+    required this.refetch,
   });
 }

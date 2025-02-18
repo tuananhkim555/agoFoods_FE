@@ -1,14 +1,15 @@
 import 'package:agofoods/common/app_style.dart';
 import 'package:agofoods/common/reusable_text.dart';
 import 'package:agofoods/constants/constants.dart';
+import 'package:agofoods/models/restaurants_model.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_rating_bar/flutter_rating_bar.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
-class OutstandingTitle extends StatelessWidget {
-  const OutstandingTitle({super.key, required this.restaurants});
+class RestaurantTitle extends StatelessWidget {
+  const RestaurantTitle({super.key, required this.restaurants});
 
-  final dynamic restaurants;
+  final RestaurantsModel restaurants;
 
   @override
   Widget build(BuildContext context) {
@@ -38,7 +39,7 @@ class OutstandingTitle extends StatelessWidget {
                           width: 70.w,
                           height: 70.h,
                           child: Image.network(
-                            restaurants['imageUrl'],
+                            restaurants.imageUrl,
                             fit: BoxFit.cover,
                           ),
                         ),
@@ -69,17 +70,17 @@ class OutstandingTitle extends StatelessWidget {
                     crossAxisAlignment: CrossAxisAlignment.start,
                     children: [
                       ReusableText(
-                        text: restaurants['title'],
+                        text: restaurants.title,
                         style: appStyle(11, kGrayDark, FontWeight.w500),
                       ),
                       ReusableText(
-                        text: "Giờ mở cửa: ${restaurants['time']}",
+                        text: "Giờ mở cửa: ${restaurants.time}",
                         style: appStyle(11, kGreen, FontWeight.w400),
                       ),
                       SizedBox(
                         width: width * 0.7,
                         child: Text(
-                          restaurants['coords']['address'],
+                          restaurants.coords.address,
                           style: appStyle(9, kGray, FontWeight.w400),
                         ),
                       )
@@ -96,16 +97,16 @@ class OutstandingTitle extends StatelessWidget {
               width: 60.w,
               height: 25.h,
               decoration: BoxDecoration(
-                color: restaurants['isAvailable'] == true ||
-                        restaurants['isAvailable'] == null
+                color: restaurants.isAvailable == true ||
+                        restaurants.isAvailable
                     ? kGreen
                     : kPrimary,
                 borderRadius: BorderRadius.circular(20.r),
               ),
               child: Center(
                 child: ReusableText(
-                  text: restaurants['isAvailable'] == true ||
-                          restaurants['isAvailable'] == null
+                  text: restaurants.isAvailable == true ||
+                          restaurants.isAvailable
                       ? 'Mở cửa'
                       : 'Đóng cửa',
                   style: appStyle(12, kLightWhite, FontWeight.w600),
