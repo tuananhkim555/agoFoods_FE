@@ -3,18 +3,18 @@ class FoodsModel {
   final String restaurantId;
   final String title;
   final String time;
-  final double price;
+  final int? price; // Cho phép null
   final String? description;
   final String categoryId;
   final List<FoodTypeModel> foodTypes;
   final List<FoodTagModel> foodTags;
   final List<AdditiveModel> additives;
   final String code;
-  final double rating;
-  final int ratingCount;
+  final double? rating;
+  final int? ratingCount;
   final List<String> imageUrl;
   final bool isAvailable;
-  final int quantity;
+  final int? quantity;
   final bool status;
   final DateTime createdAt;
   final DateTime updatedAt;
@@ -24,18 +24,18 @@ class FoodsModel {
     required this.restaurantId,
     required this.title,
     required this.time,
-    required this.price,
+    this.price,
     this.description,
     required this.categoryId,
     required this.foodTypes,
     required this.foodTags,
     required this.additives,
     required this.code,
-    required this.rating,
-    required this.ratingCount,
+    this.rating,
+    this.ratingCount,
     required this.imageUrl,
     required this.isAvailable,
-    required this.quantity,
+    this.quantity,
     required this.status,
     required this.createdAt,
     required this.updatedAt,
@@ -43,11 +43,11 @@ class FoodsModel {
 
   factory FoodsModel.fromJson(Map<String, dynamic> json) {
     return FoodsModel(
-      id: json['id'],
+      id: json['id'] ?? '',
       restaurantId: json['restaurantId'],
       title: json['title'],
       time: json['time'],
-      price: (json['price'] as num).toDouble(),
+      price: (json['price'] as num).toInt(),
       description: json['description'],
       categoryId: json['categoryId'],
       foodTypes: (json['foodTypes'] as List)

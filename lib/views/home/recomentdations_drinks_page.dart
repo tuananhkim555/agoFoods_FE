@@ -10,8 +10,8 @@ import 'package:flutter/material.dart';
 import 'package:flutter_hooks/flutter_hooks.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
-class DrinksNearYouPage extends HookWidget {
-  const DrinksNearYouPage({super.key});
+class RecomentdationsDrinksPage extends HookWidget {
+  const RecomentdationsDrinksPage({super.key});
 
   @override
   Widget build(BuildContext context) {
@@ -19,25 +19,26 @@ class DrinksNearYouPage extends HookWidget {
     List<DrinksModel>? drinks = hookResults.data;
     final isLoading = hookResults.isLoading;
     return Scaffold(
-      backgroundColor: kPrimary,
       appBar: AppBar(
-        elevation: 0,
+        elevation: 0.3,
         backgroundColor: kPrimary,
-        title: ReusableText(
-          text: "Đồ uống gần bạn",
-          style: appStyle(13, kWhite, FontWeight.w600),
+        title: ReusableText(text: "Đồ uống để cử",
+        style: appStyle(13, kWhite, FontWeight.w600),
         ),
       ),
       body: BackgroundContainer(
         color: Colors.white,
-        child: isLoading ? const DrinkListShimmer() : Padding(
+        child: isLoading 
+          ? const DrinkListShimmer() 
+          :  Padding(
           padding: EdgeInsets.all(12.h),
-          child:  ListView(
-            children: List.generate(drinks.length, (i) {
-              var drink= drinks[i];
+          child: ListView(
+            children: List.generate(drinks!.length, (i) {
+              DrinksModel drink = drinks[i];
               return DrinkTitle(drinks: drink);
             }),
           ),
+        
         ),
       ),
     );

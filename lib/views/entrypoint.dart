@@ -2,6 +2,8 @@ import 'package:agofoods/constants/constants.dart';
 import 'package:agofoods/views/cart/cart_page.dart';
 import 'package:agofoods/views/home/home_page.dart';
 import 'package:agofoods/views/profile/profile_page.dart';
+import 'package:agofoods/views/search/search_foods_page.dart';
+import 'package:agofoods/views/search/search_location_page.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import '../controllers/tab_index_controller.dart';
@@ -20,6 +22,8 @@ class MainScreen extends StatelessWidget {
     AddFoodPage(),
     CartPage(), // index 4
     ProfilePage(), // index 5
+    SearchFoodsPage(),
+    SearchLocationPage(), 
   ];
 
   @override
@@ -73,7 +77,7 @@ class MainScreen extends StatelessWidget {
                                 ? const Icon(FontAwesomeIcons.userCircle)
                                 // ignore: deprecated_member_use
                                 : const Icon(FontAwesomeIcons.solidUserCircle),
-                            label: 'Trang cá nhân'),
+                            label: 'Cá nhân'),
                       ],
                     )),
               )

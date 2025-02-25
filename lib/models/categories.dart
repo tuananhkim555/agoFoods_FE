@@ -14,6 +14,7 @@ class CategoriesModel {
   final String id;
   final String title;
   final String value;
+  final String type;
   final String imageUrl;
   final int version;
   final DateTime createdAt;
@@ -24,6 +25,7 @@ class CategoriesModel {
     required this.id,
     required this.title,
     required this.value,
+    required this.type,
     required this.imageUrl,
     required this.version,
     required this.createdAt,
@@ -37,6 +39,7 @@ class CategoriesModel {
       title: json['title'],
       value: json['value'],
       imageUrl: json['imageUrl'],
+      type: json['type'],
       version: json['version'],
       createdAt: DateTime.parse(json['createdAt']),
       updatedAt: DateTime.parse(json['updatedAt']),
@@ -49,6 +52,7 @@ class CategoriesModel {
       'id': id,
       'title': title,
       'value': value,
+      'type': type,
       'imageUrl': imageUrl,
       'version': version,
       'createdAt': createdAt.toIso8601String(),

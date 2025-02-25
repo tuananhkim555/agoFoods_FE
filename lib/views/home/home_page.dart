@@ -5,8 +5,9 @@ import 'package:agofoods/views/home/drinks_near_you_page.dart';
 import 'package:agofoods/views/home/food_near_you_page.dart';
 import 'package:agofoods/views/home/recomentdations_foods_page.dart';
 import 'package:agofoods/views/home/all_narby_restaurants.dart';
-import 'package:agofoods/views/home/outstanding_drinks_page.dart';
+import 'package:agofoods/views/home/recomentdations_drinks_page.dart';
 import 'package:agofoods/views/home/widgets/category_list.dart';
+import 'package:agofoods/views/home/widgets/drink_list.dart';
 import 'package:agofoods/views/home/widgets/food_list.dart';
 import 'package:agofoods/views/home/widgets/nearby_restaurants_list.dart';
 import 'package:flutter/material.dart';
@@ -67,13 +68,14 @@ class HomePage extends StatelessWidget {
               ),
               const FoodList(),
               Heading(
-                text: 'Đồ uống nổi bật',
+                text: 'Đồ uống đều cử',
                 onTap: () {
-                  Get.to(() => const OutstandingDrinksPage(),
+                  Get.to(() => const RecomentdationsDrinksPage(),
                       transition: Transition.cupertino,
                       duration: const Duration(milliseconds: 300));
                 },
               ),
+              const DrinkList(),
               Heading(
                 text: 'Đồ uống gần bạn',
                 onTap: () {

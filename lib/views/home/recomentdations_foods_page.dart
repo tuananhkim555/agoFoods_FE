@@ -31,9 +31,10 @@ class RecomentdationsFoodsPage extends HookWidget {
       ),
       body: BackgroundContainer(
         color: Colors.white,
-        child: Padding(
+        child: isLoading ? const FoodListShimmer() : 
+        Padding(
           padding: EdgeInsets.all(12.h),
-          child: isLoading ? const FoodListShimmer() : ListView(
+          child: ListView(
             children: List.generate(foods!.length, (i) {
               FoodsModel food = foods[i];
               return FoodTitle(foods: food);
