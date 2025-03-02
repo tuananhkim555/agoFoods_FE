@@ -3,7 +3,7 @@ import 'package:agofoods/views/entrypoint.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:get/get.dart';
-import 'package:agofoods/views/search/search_foods_page.dart'; // Import SearchFoodsPage
+import 'package:agofoods/views/search/search_page.dart'; // Import SearchFoodsPage
 import 'package:agofoods/views/search/search_location_page.dart'; // Import SearchLocationPage
 
 Widget defaultHome = MainScreen();
@@ -36,7 +36,7 @@ class MyApp extends StatelessWidget {
           initialRoute: '/', // Route mặc định
           routes: {
             '/': (context) => defaultHome, // Trang mặc định
-            '/search_foods': (context) => const SearchFoodsPage(), // Route cho tìm món ăn
+            '/search_foods': (context) => const SearchPage(), // Route cho tìm món ăn
             '/search_location': (context) => const SearchLocationPage(), // Route cho tìm địa điểm
           },
         );

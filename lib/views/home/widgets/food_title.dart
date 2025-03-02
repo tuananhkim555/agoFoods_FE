@@ -41,7 +41,7 @@ class FoodTitle extends StatelessWidget {
                           width: 70.w,
                           height: 70.h,
                           child: Image.network(
-                            foods.imageUrl[0],
+                            foods.imageUrl![0],
                             fit: BoxFit.cover,
                           ),
                         ),

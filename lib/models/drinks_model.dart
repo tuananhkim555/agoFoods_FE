@@ -1,79 +1,76 @@
-class DrinksModel {
-  final String id;
-  final String restaurantId;
-  final String title;
-  final String time;
-  final double price;
-  final String? description;
-  final String categoryId;
-  final List<DrinkTypeModel> drinkTypes;
-  final List<DrinkTagModel> drinkTags;
-  final List<AdditiveModel> additives;
-  final String code;
-  final double rating;
-  final int ratingCount;
-  final List<String> imageUrl;
-  final bool isAvailable;
-  final int quantity;
-  final bool status;
-  final DateTime createdAt;
-  final DateTime updatedAt;
+import 'package:agofoods/models/additives_model.dart';
+import 'package:agofoods/models/base_food_drink_model.dart';
+
+class DrinksModel extends BaseFoodDrinkModel {
+  List<DrinkTypeModel> drinkTypes;
+  List<DrinkTagModel> drinkTags;
+  List<AdditiveModel> additives;
+  int? quantity;
 
   DrinksModel({
-    required this.id,
-    required this.restaurantId,
-    required this.title,
-    required this.time,
-    required this.price,
-    this.description,
-    required this.categoryId,
-    required this.drinkTypes,
-    required this.drinkTags,
-    required this.additives,
-    required this.code,
-    required this.rating,
-    required this.ratingCount,
-    required this.imageUrl,
-    required this.isAvailable,
-    required this.quantity,
-    required this.status,
-    required this.createdAt,
-    required this.updatedAt,
-  });
+    required String id,
+    required String restaurantId,
+    required String title,
+    required String time,
+    required int price,
+    String? description,
+    required String categoryId,
+    required String code,
+    double? rating,
+    int? ratingCount,
+    List<String>? imageUrl,
+    required bool isAvailable,
+    required bool status,
+    required DateTime createdAt,
+    required DateTime updatedAt,
+    this.drinkTypes = const [],
+    this.drinkTags = const [],
+    this.additives = const [],
+    this.quantity,
+  }) : super(
+      id: id,
+      restaurantId: restaurantId,
+      title: title,
+      time: time,
+      price: price,
+      description: description,
+      categoryId: categoryId,
+      code: code,
+      rating: rating,
+      ratingCount: ratingCount,
+      imageUrl: imageUrl,
+      isAvailable: isAvailable,
+      status: status,
+      createdAt: createdAt,
+      updatedAt: updatedAt,
+    );
 
   factory DrinksModel.fromJson(Map<String, dynamic> json) {
     return DrinksModel(
       id: json['id'] ?? '',
       restaurantId: json['restaurantId'] ?? '',
-      title: json['title'] ?? 'Không có tiêu đề',
-      time: json['time'] ?? 'N/A',
-      price: (json['price'] as num?)?.toDouble() ?? 0.0, // Nếu null -> 0.0
+      title: json['title'] ?? '',
+      time: json['time'] ?? '',
+      price: json['price'] is num ? (json['price'] as num).toInt() : 0,
       description: json['description'],
       categoryId: json['categoryId'] ?? '',
-      drinkTypes: (json['drinkTypes'] as List?)
-              ?.map((item) => DrinkTypeModel.fromJson(item))
-              .toList() ??
-          [], // Nếu null -> danh sách rỗng
-      drinkTags: (json['drinkTags'] as List?)
-              ?.map((item) => DrinkTagModel.fromJson(item))
-              .toList() ??
-          [],
-      additives: (json['additives'] as List?)
-              ?.map((item) => AdditiveModel.fromJson(item))
-              .toList() ??
-          [],
       code: json['code'] ?? '',
-      rating: (json['rating'] as num?)?.toDouble() ?? 0.0,
-      ratingCount: (json['ratingCount'] as num?)?.toInt() ?? 0,
-      imageUrl: (json['imageUrl'] as List?)?.cast<String>() ?? [],
-      isAvailable: json['isAvailable'] ?? false,
-      quantity: (json['quantity'] as num?)?.toInt() ?? 0,
-      status: json['status'] ?? false,
-      createdAt: DateTime.tryParse(json['createdAt'] ?? '') ?? DateTime.now(),
-      updatedAt: DateTime.tryParse(json['updatedAt'] ?? '') ?? DateTime.now(),
+      rating: json['rating'] is num ? (json['rating'] as num).toDouble() : null,
+      ratingCount: json['ratingCount'] as int?,
+      imageUrl: (json['imageUrl'] as List<dynamic>?)?.map((e) => e.toString()).toList(),
+      isAvailable: json['isAvailable'] == true,
+      status: json['status'] == true,
+      createdAt: DateTime.parse(json['createdAt']),
+      updatedAt: DateTime.parse(json['updatedAt']),
+      drinkTypes: (json['drinkTypes'] as List<dynamic>?)?.map((e) => DrinkTypeModel.fromJson(e)).toList() ?? [],
+      drinkTags: (json['drinkTags'] as List<dynamic>?)?.map((e) => DrinkTagModel.fromJson(e)).toList() ?? [],
+      additives: (json['additives'] as List<dynamic>?)?.map((e) => AdditiveModel.fromJson(e)).toList() ?? [],
+      quantity: json['quantity'] as int?,
     );
   }
+
 }
+
 
 class DrinkTagModel {
   final String id;
@@ -96,6 +93,7 @@ class DrinkTagModel {
       updatedAt: DateTime.tryParse(json['updatedAt'] ?? '') ?? DateTime.now(),
     );
   }
+
 }
 
 class DrinkTypeModel {
@@ -121,28 +119,4 @@ class DrinkTypeModel {
   }
 }
 
-class AdditiveModel {
-  final String id;
-  final String title;
-  final double price;
-  final DateTime createdAt;
-  final DateTime updatedAt;
 
-  AdditiveModel({
-    required this.id,
-    required this.title,
-    required this.price,
-    required this.createdAt,
-    required this.updatedAt,
-  });
-
-  factory AdditiveModel.fromJson(Map<String, dynamic> json) {
-    return AdditiveModel(
-      id: json['id'] ?? '',
-      title: json['title'] ?? 'Không có tiêu đề',
-      price: (json['price'] as num?)?.toDouble() ?? 0.0,
-      createdAt: DateTime.tryParse(json['createdAt'] ?? '') ?? DateTime.now(),
-      updatedAt: DateTime.tryParse(json['updatedAt'] ?? '') ?? DateTime.now(),
-    );
-  }
-}

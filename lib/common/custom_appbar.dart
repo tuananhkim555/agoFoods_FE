@@ -1,4 +1,3 @@
-// File: custom_app_bar.dart
 import 'dart:async';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
@@ -31,9 +30,9 @@ class _CustomAppBarState extends State<CustomAppBar> {
   int _currentPageIndex = 0; // Chỉ số trang hiện tại
 
   final List<String> _imagePaths = [
-    'assets/images/images.jpg',
-    'assets/images/images.jpg',
-    'assets/images/images.jpg',
+    'assets/images/food.jpg',
+    'assets/images/food2.jpg',
+    'assets/images/banner.png',
   ]; // Danh sách các ảnh
 
   @override
@@ -130,7 +129,7 @@ class _CustomAppBarState extends State<CustomAppBar> {
                 padding: EdgeInsets.symmetric(horizontal: 15.w),
                 decoration: BoxDecoration(
                   color: Colors.white,
-                  borderRadius: BorderRadius.circular(30.r),
+                  borderRadius: BorderRadius.circular(12.r),
                   border: Border.all(color: Colors.grey.shade300),
                   boxShadow: [
                     BoxShadow(

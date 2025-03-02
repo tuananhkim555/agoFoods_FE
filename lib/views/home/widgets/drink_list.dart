@@ -25,7 +25,7 @@ class DrinkList extends HookWidget {
               children: List.generate(drinks!.length, (i) {
                 var drink = drinks[i];
                 return DrinkWidget(
-                  image: drink.imageUrl[0],
+                  image: drink.imageUrl![0],
                   title: drink.title,
                   time: drink.time,
                   price: formatPriceVND(drink.price ?? 0.0),

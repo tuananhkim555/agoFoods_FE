@@ -25,7 +25,7 @@ class FoodList extends HookWidget {
               children: List.generate(foods!.length, (i) {
                 var food = foods[i];
                 return FoodWidget(
-                  image: food.imageUrl[0],
+                  image: food.imageUrl![0],
                   title: food.title,
                   time: food.time,
                   price: formatPriceVND(food.price ?? 0.0),

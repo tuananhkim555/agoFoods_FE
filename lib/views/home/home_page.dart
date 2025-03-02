@@ -68,7 +68,7 @@ class HomePage extends StatelessWidget {
               ),
               const FoodList(),
               Heading(
-                text: 'Đồ uống đều cử',
+                text: 'Đồ uống đề cử',
                 onTap: () {
                   Get.to(() => const RecomentdationsDrinksPage(),
                       transition: Transition.cupertino,
