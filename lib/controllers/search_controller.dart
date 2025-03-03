@@ -19,6 +19,9 @@ class SearchFoodsDrinksController extends GetxController {
     _isLoading.value = value;
   }
 
+ 
+
+
 RxList<BaseFoodDrinkModel> searchResults = <BaseFoodDrinkModel>[].obs;
   
 

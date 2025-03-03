@@ -4,7 +4,7 @@ import 'package:flutter_screenutil/flutter_screenutil.dart';
 
 String googleApiKey = '';
 
-const kPrimary = Color.fromARGB(255, 250, 88, 14);
+const kPrimary = Color.fromARGB(255, 244, 57, 0);
 const kPrimaryLight = Color.fromARGB(255, 255, 122, 34);
 const kSecondary = Color.fromARGB(255, 243, 178, 0);
 const kSecondaryLight = Color.fromARGB(255, 255, 210, 170);

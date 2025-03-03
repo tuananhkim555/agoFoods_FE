@@ -11,18 +11,6 @@ class CartPage extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
         backgroundColor: kOffWhite,
-        appBar: PreferredSize(
-          preferredSize: Size.fromHeight(130.h),
-          child: CustomAppBar(
-            title: 'Giỏ hàng',
-            actions: [
-              IconButton(
-                icon: const Icon(Icons.notifications_outlined, color: kPrimary),
-                onPressed: () {},
-              ),
-            ],
-          ),
-        ),
         body: SafeArea(
           child: CustomContainer(containerContent: Container()),
         ));
