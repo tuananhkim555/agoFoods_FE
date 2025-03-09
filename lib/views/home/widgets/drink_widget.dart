@@ -74,7 +74,7 @@ class DrinkWidget extends StatelessWidget {
                         mainAxisAlignment: MainAxisAlignment.spaceBetween,
                         children: [
                           ReusableText(
-                            text: "Giờ mở cửa",
+                            text: "Quán làm trong",
                             style: appStyle(9, kGray, FontWeight.w500),
                           ),
                           ReusableText(

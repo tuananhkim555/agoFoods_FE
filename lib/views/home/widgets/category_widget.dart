@@ -10,43 +10,44 @@ import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:get/get.dart';
 
-
 class CategoryWidget extends StatelessWidget {
   const CategoryWidget({
     super.key,
     required this.category,
   });
 
-  final CategoriesModel category;  
-  
+  final CategoriesModel category;
+
   @override
   Widget build(BuildContext context) {
-    final controller = Get.put(CategoryController());
+    final controller = Get.find<CategoryController>(); // Sử dụng Get.find
+
     return GestureDetector(
       onTap: () {
-        if (controller.categoryValue == category.id) {
-          controller.updateCategory = '';
-          controller.updateTitle = '';
-        } else if (category.value == 'tat_ca') {
+        Get.forceAppUpdate();
+
+        // Kiểm tra nếu là category "tat_ca"
+        if (category.value == 'tat_ca') {
           Get.to(
             () => const AllCategories(),
-            transition: Transition.fadeIn,
+            transition: Transition.cupertino,
             duration: const Duration(milliseconds: 300),
           );
         } else {
-          controller.updateCategory = category.id;
-          controller.updateTitle = category.title;
+          controller.setCategory(category.id ?? '', category.title ?? '',
+              category.type ?? CategoriesModel.TYPE_FOOD);
         }
+        print("Selected category: ${category.value}");
       },
       child: Obx(() => Container(
-            margin: EdgeInsets.only(right: 5.w),
-            padding: EdgeInsets.only(top: 4.h),
+            margin: EdgeInsets.only(right: 1.w, left: 2.w),
+            padding: EdgeInsets.only(top: 5.h),
             width: width * 0.19,
             decoration: BoxDecoration(
               borderRadius: BorderRadius.circular(10.r),
               border: Border.all(
                 color: controller.categoryValue == category.id
-                    ? kSecondary
+                    ? kPrimary
                     : kOffWhite,
                 width: .5.w,
               ),
@@ -60,11 +61,10 @@ class CategoryWidget extends StatelessWidget {
                     fit: BoxFit.contain,
                   ),
                 ),
-                SizedBox(height: 5.h),
+                SizedBox(height: 7.h),
                 ReusableText(
-                  text: category.title,
-                  style: appStyle(12, kGrayDark, FontWeight.normal),
-                  fontSize: 12,
+                  text: category.title ?? '',
+                  style: appStyle(11, kGrayDark, FontWeight.w600),
                   color: kGrayDark,
                 ),
               ],

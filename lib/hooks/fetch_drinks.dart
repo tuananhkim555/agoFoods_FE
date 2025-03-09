@@ -28,8 +28,6 @@ FetchHook<List<DrinksModel>> useFetchAllDrinks(String code) {
       );
 
       // Log API response for debugging
-      print('API Response Status Code: ${response.statusCode}');
-      print('API Response Body: ${response.body}');
 
       if (response.statusCode == 200) {
         final jsonResponse = jsonDecode(response.body);
@@ -47,14 +45,12 @@ FetchHook<List<DrinksModel>> useFetchAllDrinks(String code) {
       }
     } catch (e) {
       error.value = Exception('An unexpected error occurred: $e');
-      print('Error: $e'); // Log lỗi
     } finally {
       isLoading.value = false;
     }
   }
 
   useEffect(() {
-    print("Fetching drinks...");
     fetchData();
     return null;
   }, []);

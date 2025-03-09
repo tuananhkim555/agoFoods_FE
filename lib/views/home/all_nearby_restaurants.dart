@@ -10,8 +10,8 @@ import 'package:flutter/material.dart';
 import 'package:flutter_hooks/flutter_hooks.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
-class AllNarbyRestaurants extends HookWidget {
-  const AllNarbyRestaurants({super.key});
+class AllNearbyRestaurants extends HookWidget {
+  const AllNearbyRestaurants({super.key});
 
   @override
   Widget build(BuildContext context) {

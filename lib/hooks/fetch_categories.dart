@@ -15,7 +15,6 @@ FetchHook useFetchCategories() {
   isLoading.value = true;
   try {
     String? accessToken = await getAccessToken();
-    print('Access Token: $accessToken'); // Log access token
 
     final url = Uri.parse('$appBaseUrl/api/categories/random');
     final response = await http.get(
@@ -23,8 +22,6 @@ FetchHook useFetchCategories() {
       headers: {'Authorization': 'Bearer $accessToken'},
     );
 
-    print('API Response Status Code: ${response.statusCode}');
-    print('API Response Body: ${response.body}');
 
     if (response.statusCode == 200) {
       final jsonResponse = jsonDecode(response.body);
@@ -35,7 +32,6 @@ FetchHook useFetchCategories() {
     }
   } catch (e) {
     error.value = Exception('An unexpected error occurred: $e');
-    print('Error: $e'); // Log lỗi
   } finally {
     isLoading.value = false;
   }

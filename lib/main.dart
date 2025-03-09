@@ -1,4 +1,5 @@
 import 'package:agofoods/constants/constants.dart';
+import 'package:agofoods/controllers/category_controller.dart';
 import 'package:agofoods/views/entrypoint.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
@@ -33,6 +34,9 @@ class MyApp extends StatelessWidget {
             iconTheme: const IconThemeData(color: kDark),
             primarySwatch: Colors.grey,
           ),
+          initialBinding: BindingsBuilder(() {
+        Get.put(CategoryController()); // Chỉ khởi tạo 1 lần duy nhất
+      }),
           initialRoute: '/', // Route mặc định
           routes: {
             '/': (context) => defaultHome, // Trang mặc định

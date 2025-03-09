@@ -10,21 +10,27 @@ String categoriesModelToJson(List<CategoriesModel> data) =>
     json.encode(List<dynamic>.from(data.map((x) => x.toJson())));
 
 class CategoriesModel {
-  final String id;
-  final String title;
-  final String value;
-  final String type;
+  String? id;
+  String? title;
+  String? value;
+  String? image;
+  String? type;
   final String imageUrl;
   final int version;
   final DateTime createdAt;
   final DateTime updatedAt;
 
+  // Định nghĩa các constant cho type
+  static const String TYPE_FOOD = "FOOD";
+  static const String TYPE_DRINK = "DRINK";
+
   // Constructor
   CategoriesModel({
-    required this.id,
-    required this.title,
-    required this.value,
-    required this.type,
+    this.id,
+    this.title,
+    this.value,
+    this.image,
+    this.type,
     required this.imageUrl,
     required this.version,
     required this.createdAt,
@@ -37,8 +43,9 @@ class CategoriesModel {
       id: json['id'],
       title: json['title'],
       value: json['value'],
-      imageUrl: json['imageUrl'],
+      image: json['image'],
       type: json['type'],
+      imageUrl: json['imageUrl'],
       version: json['version'],
       createdAt: DateTime.parse(json['createdAt']),
       updatedAt: DateTime.parse(json['updatedAt']),
@@ -47,15 +54,16 @@ class CategoriesModel {
 
   // Phương thức toJson để chuyển đổi đối tượng thành JSON
   Map<String, dynamic> toJson() {
-    return {
-      'id': id,
-      'title': title,
-      'value': value,
-      'type': type,
-      'imageUrl': imageUrl,
-      'version': version,
-      'createdAt': createdAt.toIso8601String(),
-      'updatedAt': updatedAt.toIso8601String(),
-    };
+    final Map<String, dynamic> data = <String, dynamic>{};
+    data['id'] = id;
+    data['title'] = title;
+    data['value'] = value;
+    data['image'] = image;
+    data['type'] = type;
+    data['imageUrl'] = imageUrl;
+    data['version'] = version;
+    data['createdAt'] = createdAt.toIso8601String();
+    data['updatedAt'] = updatedAt.toIso8601String();
+    return data;
   }
 }

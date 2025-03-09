@@ -26,8 +26,6 @@ FetchHook useFetchAllRestaurants(String code) {
       );
 
       // Log API response for debugging
-      print('API Response Status Code: ${response.statusCode}');
-      print('API Response Body: ${response.body}');
 
       if (response.statusCode == 200) {
         final jsonResponse = jsonDecode(response.body);

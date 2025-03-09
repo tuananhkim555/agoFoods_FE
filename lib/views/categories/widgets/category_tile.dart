@@ -9,13 +9,14 @@ import 'package:get/get.dart';
 
 // ignore: must_be_immutable
 class CategoryTile extends StatelessWidget {
-  CategoryTile({
-    super.key,
-    required this.category,
-    required Color textColor,
-  });
+  final CategoriesModel category;
+  final Color? textColor;
 
-  CategoriesModel category;
+  const CategoryTile({
+    Key? key,
+    required this.category,
+    this.textColor,
+  }) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
@@ -31,13 +32,13 @@ class CategoryTile extends StatelessWidget {
         radius: 18.r,
         backgroundColor: kGrayLight,
         child: Image.network(
-          category.imageUrl,
+          category.imageUrl ?? "",
           fit: BoxFit.contain,
         ),
       ),
       title: ReusableText(
-        text: category.title,
-        style: appStyle(12, kGrayDark, FontWeight.w500),
+        text: category.title ?? "",
+        style: appStyle(12, textColor ?? kGrayDark, FontWeight.w500),
       ),
       trailing: Icon(
         Icons.arrow_forward_ios_rounded,

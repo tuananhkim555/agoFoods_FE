@@ -18,7 +18,6 @@ FetchHook<List<FoodsModel>> useFetchAllFoods(String code) {
     try {
       // Get access token
       String? accessToken = await getAccessToken();
-      print('Access Token: $accessToken'); // Log access token
 
       // Fetch data from the API
       final url = Uri.parse('$appBaseUrl/api/foods/random/$code');
@@ -28,8 +27,6 @@ FetchHook<List<FoodsModel>> useFetchAllFoods(String code) {
       );
 
       // Log API response for debugging
-      print('API Response Status Code: ${response.statusCode}');
-      print('API Response Body: ${response.body}');
 
       if (response.statusCode == 200) {
         final jsonResponse = jsonDecode(response.body);
@@ -47,7 +44,6 @@ FetchHook<List<FoodsModel>> useFetchAllFoods(String code) {
       }
     } catch (e) {
       error.value = Exception('An unexpected error occurred: $e');
-      print('Error: $e'); // Log lỗi
     } finally {
       isLoading.value = false;
     }

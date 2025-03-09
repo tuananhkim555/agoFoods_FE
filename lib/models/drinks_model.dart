@@ -26,7 +26,7 @@ class DrinksModel extends BaseFoodDrinkModel {
     this.drinkTypes = const [],
     this.drinkTags = const [],
     this.additives = const [],
-    this.quantity,
+    this.quantity, required value,
   }) : super(
       id: id,
       restaurantId: restaurantId,
@@ -51,6 +51,7 @@ class DrinksModel extends BaseFoodDrinkModel {
       restaurantId: json['restaurantId'] ?? '',
       title: json['title'] ?? '',
       time: json['time'] ?? '',
+      value: json['value'],
       price: json['price'] is num ? (json['price'] as num).toInt() : 0,
       description: json['description'],
       categoryId: json['categoryId'] ?? '',

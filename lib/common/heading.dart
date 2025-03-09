@@ -1,38 +1,47 @@
-import 'package:agofoods/common/app_style.dart';
-import 'package:agofoods/common/reusable_text.dart';
 import 'package:agofoods/constants/constants.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_boxicons/flutter_boxicons.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
-import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 
 class Heading extends StatelessWidget {
-  const Heading({super.key, required this.text, required this.onTap});
+  const Heading({
+    super.key,
+    required this.icon,
+    required this.title,
+    required this.onTap,
+    this.trailingIcon = Boxicons.bxs_grid_alt, this.more = true , // Mặc định là icon mũi tên
+  });
 
-  final String text;
-  final void Function() onTap;
+  final IconData icon;
+  final String title;
+  final VoidCallback onTap;
+  final IconData trailingIcon; // Icon bên phải
+  final bool more;
 
   @override
   Widget build(BuildContext context) {
-    return Container(
-      padding: EdgeInsets.symmetric(horizontal: 12.w),
-      child: Row(
-        mainAxisAlignment: MainAxisAlignment.spaceBetween,
-        children: [
-          Padding(
-            padding: EdgeInsets.only(top: 10.h),
-            child: ReusableText(
-                text: text, style: appStyle(16, kDark, FontWeight.bold)),
-          ),
-          GestureDetector(
-            onTap: onTap,
-            child: Icon(
-              FontAwesomeIcons.barsProgress,
-              color: kPrimary,
-              size: 20.sp,
+    return Padding(
+      padding: EdgeInsets.symmetric(vertical: 10.h, horizontal: 16.w),
+      child: 
+       more == true ?GestureDetector(
+        onTap: onTap,
+        child: Row(
+          children: [
+            Icon(icon, color: kPrimary, size: 20.h),
+            SizedBox(width: 5.w),
+            Expanded(
+              child: Text(
+                title,
+                style: TextStyle(
+                  fontSize: 16.sp,
+                  fontWeight: FontWeight.w600,
+                ),
+              ),
             ),
-          )
-        ],
-      ),
+            Icon(trailingIcon, color: kPrimary, size: 20.h),
+          ],
+        ),
+      ): const SizedBox.shrink()
     );
   }
 }

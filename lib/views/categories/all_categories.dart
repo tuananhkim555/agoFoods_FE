@@ -3,7 +3,6 @@ import 'package:agofoods/common/reusable_text.dart';
 import 'package:agofoods/common/shimmers/foodlist_shimmer.dart';
 import 'package:agofoods/constants/constants.dart';
 import 'package:agofoods/common/app_style.dart';
-import 'package:agofoods/constants/uidata.dart';
 import 'package:agofoods/views/categories/widgets/category_tile.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_hooks/flutter_hooks.dart';
@@ -19,30 +18,44 @@ class AllCategories extends HookWidget {
   @override
   Widget build(BuildContext context) {
     final hookResult = useFetchAllCategories();
-    List<CategoriesModel>? categories = hookResult.data ?? [];
     final isLoading = hookResult.isLoading;
+    List<CategoriesModel>? categories = hookResult.data ?? [];
+    
+    // Lọc bỏ danh mục "Tất cả"
+    categories?.removeWhere((cat) => cat.value == 'tat_ca');
+
     return Scaffold(
-        appBar: AppBar(
-          elevation: 0,
-          backgroundColor: kOffWhite,
-          title: ReusableText(
-            text: 'DANH MỤC CÁC MÓN',
-            style: appStyle(16, kPrimary, FontWeight.w600),
-          ),
+      appBar: AppBar(
+        elevation: 0,
+        backgroundColor: kOffWhite,
+        title: ReusableText(
+          text: 'TẤT CẢ DANH MỤC',
+          style: appStyle(16, kPrimary, FontWeight.w600),
         ),
-        body: BackgroundContainer(
-          color: Colors.white,
-          child: Container(
-            padding: EdgeInsets.only(left: 12.w, top: 10.h),
-            height: height,
-            child: isLoading ? const FoodListShimmer() : ListView(
-              scrollDirection: Axis.vertical,
-              children: List.generate(categories!.length, (i) {
-              var category = categories[i];
-              return CategoryTile(category: category, textColor: kPrimary,);
-            }),
-            ),
-          ),
-        ));
+      ),
+      body: BackgroundContainer(
+        color: Colors.white,
+        child: Container(
+          padding: EdgeInsets.only(left: 12.w, top: 10.h),
+          child: isLoading 
+              ? const FoodListShimmer() 
+              : ListView.builder(
+                  scrollDirection: Axis.vertical,
+                  itemCount: categories?.length,
+                  itemBuilder: (context, i) {
+                    var category = categories?[i];
+                    if (category != null) {
+                      return CategoryTile(
+                        category: category, 
+                        textColor: kGrayDark,
+                      );
+                    } else {
+                      return const SizedBox.shrink();
+                    }
+                  },
+                ),
+        ),
+      ),
+    );
   }
 }

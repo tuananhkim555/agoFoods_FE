@@ -15,14 +15,11 @@ Future<void> fetchData() async {
   isLoading.value = true;
   try {
     String? accessToken = await getAccessToken();
-    print('Access Token: $accessToken'); // Log access token
     final url = Uri.parse('$appBaseUrl/api/restaurants/all/$code');
     final response = await http.get(
       url,
       headers: {'Authorization': 'Bearer $accessToken'},
     );
-    print('API Response Status Code: ${response.statusCode}');
-    print('API Response Body: ${response.body}');
 
     if (response.statusCode == 200) {
       final jsonResponse = jsonDecode(response.body);
@@ -43,7 +40,6 @@ Future<void> fetchData() async {
     }
   } catch (e) {
     error.value = Exception('An unexpected error occurred: $e');
-    print('Error: $e'); // Log lỗi
   } finally {
     isLoading.value = false;
   }

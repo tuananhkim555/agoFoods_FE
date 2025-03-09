@@ -10,8 +10,8 @@ import 'package:flutter/material.dart';
 import 'package:flutter_hooks/flutter_hooks.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
-class RecomentdationsFoodsPage extends HookWidget {
-  const RecomentdationsFoodsPage({super.key});
+class RecommentdationsFoodsPage extends HookWidget {
+  const RecommentdationsFoodsPage({super.key});
 
   @override
   Widget build(BuildContext context) {

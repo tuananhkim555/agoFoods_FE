@@ -25,9 +25,6 @@ FetchHook useFetchAllRestaurants(String code) {
         headers: {'Authorization': 'Bearer $accessToken'},
       );
 
-      // Log API response for debugging
-      print('API Response Status Code: ${response.statusCode}');
-      print('API Response Body: ${response.body}');
 
       if (response.statusCode == 200) {
         final jsonResponse = jsonDecode(response.body);
@@ -48,7 +45,6 @@ FetchHook useFetchAllRestaurants(String code) {
       }
     } catch (e) {
       error.value = Exception('An unexpected error occurred: $e');
-      print('Error: $e'); // Log lỗi
     } finally {
       isLoading.value = false;
     }
