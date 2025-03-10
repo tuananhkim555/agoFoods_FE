@@ -9,39 +9,40 @@ class Heading extends StatelessWidget {
     required this.icon,
     required this.title,
     required this.onTap,
-    this.trailingIcon = Boxicons.bxs_grid_alt, this.more = true , // Mặc định là icon mũi tên
+    this.trailingIcon = Boxicons.bxs_grid_alt,
+    this.more = true, // Mặc định là icon mũi tên
   });
 
   final IconData icon;
   final String title;
   final VoidCallback onTap;
-  final IconData trailingIcon; // Icon bên phải
+  final IconData? trailingIcon; // Icon bên phải
   final bool more;
 
   @override
   Widget build(BuildContext context) {
     return Padding(
-      padding: EdgeInsets.symmetric(vertical: 10.h, horizontal: 16.w),
-      child: 
-       more == true ?GestureDetector(
-        onTap: onTap,
-        child: Row(
-          children: [
-            Icon(icon, color: kPrimary, size: 20.h),
-            SizedBox(width: 5.w),
-            Expanded(
-              child: Text(
-                title,
-                style: TextStyle(
-                  fontSize: 16.sp,
-                  fontWeight: FontWeight.w600,
+        padding: EdgeInsets.symmetric(vertical: 10.h, horizontal: 16.w),
+        child: more == true
+            ? GestureDetector(
+                onTap: onTap,
+                child: Row(
+                  children: [
+                    Icon(icon, color: kPrimary, size: 20.h),
+                    SizedBox(width: 5.w),
+                    Expanded(
+                      child: Text(
+                        title,
+                        style: TextStyle(
+                          fontSize: 16.sp,
+                          fontWeight: FontWeight.w600,
+                        ),
+                      ),
+                    ),
+                    Icon(trailingIcon, color: kPrimary, size: 20.h),
+                  ],
                 ),
-              ),
-            ),
-            Icon(trailingIcon, color: kPrimary, size: 20.h),
-          ],
-        ),
-      ): const SizedBox.shrink()
-    );
+              )
+            : const SizedBox.shrink());
   }
 }

@@ -9,7 +9,7 @@ import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:agofoods/hooks/fetch_categories.dart';
 import 'package:agofoods/views/motobike/motobike_page.dart';
 import 'package:agofoods/views/car/car_page.dart';
-import 'package:agofoods/views/delivery/deliver_page.dart';
+import 'package:agofoods/views/delivery/delivery_page.dart';
 import 'package:get/get.dart';
 
 class CategoryList extends HookWidget {
@@ -21,24 +21,27 @@ class CategoryList extends HookWidget {
     List<CategoriesModel>? categoriesList = hookResult.data ?? [];
     final isLoading = hookResult.isLoading;
 
-    if (categoriesList != null && categoriesList.isNotEmpty) {
+    // Kiểm tra và xử lý danh sách categories
+    if (categoriesList!.isNotEmpty) {
+      // Tìm category 'tat_ca'
       CategoriesModel? tatCaCategory =
           categoriesList.firstWhereOrNull((cat) => cat.value == 'tat_ca');
 
       if (tatCaCategory != null) {
+        // Xóa tatCaCategory khỏi vị trí hiện tại
         categoriesList.remove(tatCaCategory);
 
-        // Đảm bảo danh sách không bị lỗi khi có ít hơn 5 phần tử
-        int insertPosition = 4;
-        if (insertPosition >= categoriesList.length) {
-          categoriesList.add(tatCaCategory);
-        } else {
-          categoriesList.insert(insertPosition, tatCaCategory);
-        }
+        // Thêm vào vị trí thứ 4 (index 3) hoặc cuối danh sách nếu danh sách ngắn hơn
+        int insertPosition =
+            categoriesList.length >= 4 ? 4 : categoriesList.length;
+        categoriesList.insert(insertPosition, tatCaCategory);
       }
+
+      // Log để kiểm tra
+      print("📌 Categories List length: ${categoriesList.length}");
+      print(
+          "📌 Categories values: ${categoriesList.map((e) => e.value).toList()}");
     }
-    print(
-        "📌 Categories List After Insert 'Tất cả': ${categoriesList?.map((e) => e.value).toList()}");
 
     // Danh mục tĩnh
     final List<Map<String, dynamic>> staticCategories = [

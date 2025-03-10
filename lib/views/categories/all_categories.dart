@@ -9,7 +9,6 @@ import 'package:flutter_hooks/flutter_hooks.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:agofoods/hooks/fetch_all_catogories.dart';
 
-
 import '../../models/categories.dart';
 
 class AllCategories extends HookWidget {
@@ -20,9 +19,10 @@ class AllCategories extends HookWidget {
     final hookResult = useFetchAllCategories();
     final isLoading = hookResult.isLoading;
     List<CategoriesModel>? categories = hookResult.data ?? [];
-    
-    // Lọc bỏ danh mục "Tất cả"
-    categories?.removeWhere((cat) => cat.value == 'tat_ca');
+
+    // Thay vì xóa, chúng ta sẽ lọc khi hiển thị
+    final displayCategories =
+        categories?.where((cat) => cat.value != 'tat_ca').toList();
 
     return Scaffold(
       appBar: AppBar(
@@ -37,16 +37,16 @@ class AllCategories extends HookWidget {
         color: Colors.white,
         child: Container(
           padding: EdgeInsets.only(left: 12.w, top: 10.h),
-          child: isLoading 
-              ? const FoodListShimmer() 
+          child: isLoading
+              ? const FoodListShimmer()
               : ListView.builder(
                   scrollDirection: Axis.vertical,
-                  itemCount: categories?.length,
+                  itemCount: displayCategories?.length,
                   itemBuilder: (context, i) {
-                    var category = categories?[i];
+                    var category = displayCategories?[i];
                     if (category != null) {
                       return CategoryTile(
-                        category: category, 
+                        category: category,
                         textColor: kGrayDark,
                       );
                     } else {

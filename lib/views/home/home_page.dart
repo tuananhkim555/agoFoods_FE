@@ -99,6 +99,10 @@ class HomePage extends StatelessWidget {
                             more: true,
                             icon: Icons.food_bank,
                             title: 'Khám phá - ${controller.titleValue}',
+                            trailingIcon: controller.categoryValue.isEmpty
+                                ? Icons
+                                    .arrow_forward_ios // Hiện icon khi không có category
+                                : null,
                             onTap: () => Get.to(
                               () => controller.isFoodCategory
                                   ? const RecommentdationsFoodsPage()

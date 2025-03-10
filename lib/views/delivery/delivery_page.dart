@@ -1,8 +1,8 @@
 import 'package:agofoods/constants/constants.dart';
 import 'package:flutter/material.dart';
 
-class CarPage extends StatelessWidget {
-  const CarPage({super.key});
+class DeliveryPage extends StatelessWidget {
+  const DeliveryPage({super.key});
 
   @override
   Widget build(BuildContext context) {
@@ -32,7 +32,7 @@ class CarPage extends StatelessWidget {
 
           // Bottom Sheet
           DraggableScrollableSheet(
-            initialChildSize: 0.38,
+            initialChildSize: 0.50,
             minChildSize: 0.2,
             maxChildSize: 0.8,
             builder: (context, scrollController) {
@@ -85,7 +85,7 @@ class CarPage extends StatelessWidget {
                             decoration: InputDecoration(
                               prefixIcon: const Icon(Icons.my_location,
                                   color: kPrimaryLight, size: 20),
-                              hintText: 'Vị trí của bạn',
+                              hintText: 'Địa điểm lấy hàng',
                               hintStyle: TextStyle(
                                   fontSize: 14, color: Colors.grey[600]),
                               border: InputBorder.none,
@@ -98,7 +98,7 @@ class CarPage extends StatelessWidget {
                             decoration: InputDecoration(
                               prefixIcon: const Icon(Icons.location_on,
                                   color: kPrimary, size: 20),
-                              hintText: 'Bạn muốn đi đâu?',
+                              hintText: 'Địa điểm giao hàng',
                               hintStyle: TextStyle(
                                   fontSize: 14, color: Colors.grey[600]),
                               border: InputBorder.none,
@@ -110,6 +110,49 @@ class CarPage extends StatelessWidget {
                       ),
                     ),
                     const SizedBox(height: 16),
+
+                    // Package Details
+                    Container(
+                      margin: const EdgeInsets.only(bottom: 12),
+                      padding: const EdgeInsets.all(16),
+                      decoration: BoxDecoration(
+                        color: Colors.grey[50],
+                        borderRadius: BorderRadius.circular(12),
+                        border: Border.all(
+                          color: Colors.grey.withOpacity(0.2),
+                          width: 1,
+                        ),
+                      ),
+                      child: Column(
+                        crossAxisAlignment: CrossAxisAlignment.start,
+                        children: [
+                          Text(
+                            'Chi tiết đơn hàng',
+                            style: TextStyle(
+                              fontSize: 14,
+                              fontWeight: FontWeight.w600,
+                              color: Colors.grey[800],
+                            ),
+                          ),
+                          const SizedBox(height: 12),
+                          TextField(
+                            decoration: InputDecoration(
+                              hintText: 'Mô tả hàng hóa',
+                              hintStyle: TextStyle(
+                                  fontSize: 14, color: Colors.grey[600]),
+                              border: OutlineInputBorder(
+                                borderRadius: BorderRadius.circular(8),
+                                borderSide: BorderSide(
+                                  color: Colors.grey.withOpacity(0.2),
+                                ),
+                              ),
+                              contentPadding: const EdgeInsets.symmetric(
+                                  horizontal: 12, vertical: 8),
+                            ),
+                          ),
+                        ],
+                      ),
+                    ),
 
                     // Price Display
                     Container(
@@ -128,14 +171,14 @@ class CarPage extends StatelessWidget {
                         mainAxisAlignment: MainAxisAlignment.spaceBetween,
                         children: [
                           Text(
-                            'Giá ước tính:',
+                            'Phí giao hàng:',
                             style: TextStyle(
                               fontSize: 14,
                               color: Colors.grey[600],
                             ),
                           ),
                           Text(
-                            '50.000đ',
+                            '25.000đ',
                             style: TextStyle(
                               fontSize: 16,
                               fontWeight: FontWeight.w600,
@@ -163,10 +206,10 @@ class CarPage extends StatelessWidget {
                         child: const Row(
                           mainAxisAlignment: MainAxisAlignment.center,
                           children: [
-                            Icon(Icons.directions_car, size: 20),
+                            Icon(Icons.local_shipping, size: 20),
                             SizedBox(width: 8),
                             Text(
-                              'Đặt xe',
+                              'Đặt giao hàng',
                               style: TextStyle(
                                 fontSize: 16,
                                 fontWeight: FontWeight.w600,
