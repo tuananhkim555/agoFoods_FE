@@ -20,9 +20,8 @@ class AllCategories extends HookWidget {
     final isLoading = hookResult.isLoading;
     List<CategoriesModel>? categories = hookResult.data ?? [];
 
-    // Thay vì xóa, chúng ta sẽ lọc khi hiển thị
-    final displayCategories =
-        categories?.where((cat) => cat.value != 'tat_ca').toList();
+    // Lọc bỏ danh mục "Tất cả"
+    categories?.removeWhere((cat) => cat.value == 'tat_ca');
 
     return Scaffold(
       appBar: AppBar(
@@ -41,9 +40,9 @@ class AllCategories extends HookWidget {
               ? const FoodListShimmer()
               : ListView.builder(
                   scrollDirection: Axis.vertical,
-                  itemCount: displayCategories?.length,
+                  itemCount: categories?.length,
                   itemBuilder: (context, i) {
-                    var category = displayCategories?[i];
+                    var category = categories?[i];
                     if (category != null) {
                       return CategoryTile(
                         category: category,

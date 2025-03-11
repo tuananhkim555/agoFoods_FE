@@ -21,7 +21,9 @@ class CategoriesModel {
   final DateTime updatedAt;
 
   // Định nghĩa các constant cho type
+  // ignore: constant_identifier_names
   static const String TYPE_FOOD = "FOOD";
+  // ignore: constant_identifier_names
   static const String TYPE_DRINK = "DRINK";
 
   // Constructor
@@ -51,6 +53,7 @@ class CategoriesModel {
       updatedAt: DateTime.parse(json['updatedAt']),
     );
   }
+
 
   // Phương thức toJson để chuyển đổi đối tượng thành JSON
   Map<String, dynamic> toJson() {

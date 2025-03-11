@@ -9,9 +9,10 @@ import 'package:flutter_rating_bar/flutter_rating_bar.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
 class FoodTitle extends StatelessWidget {
-  const FoodTitle({super.key, required this.foods});
+  const FoodTitle({super.key, required this.foods, this.color});
 
   final FoodsModel foods;
+  final Color? color;
 
   @override
   Widget build(BuildContext context) {
@@ -25,7 +26,7 @@ class FoodTitle extends StatelessWidget {
             height: 70.h,
             width: width,
             decoration: BoxDecoration(
-              color: kOffWhite,
+              color: color??kOffWhite,
               borderRadius: BorderRadius.circular(9.r),
             ),
             child: Container(

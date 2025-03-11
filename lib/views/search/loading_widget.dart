@@ -8,10 +8,19 @@ class LoadingWidget extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return SizedBox(
-      width: width,
-      height: height,
-      child: Padding(padding: EdgeInsets.only(bottom: 200.h), child: LottieBuilder.asset("assets/anime/delivery2.json", width: width, height: height/2,),),
+    return Center(
+      child: SizedBox(
+        width: width,
+        height: height,
+        child: Padding(
+          padding: EdgeInsets.only(bottom: 200.h),
+          child: LottieBuilder.asset(
+            "assets/anime/delivery2.json",
+            width: width,
+            height: height / 2,
+          ),
+        ),
+      ),
     );
   }
 }

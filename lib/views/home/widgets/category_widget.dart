@@ -25,8 +25,6 @@ class CategoryWidget extends StatelessWidget {
     return GestureDetector(
       onTap: () {
         Get.forceAppUpdate();
-
-        // Kiểm tra nếu là category "tat_ca"
         if (category.value == 'tat_ca') {
           Get.to(
             () => const AllCategories(),

@@ -11,7 +11,7 @@ class CategoryDrinksList extends HookWidget {
   const CategoryDrinksList({super.key});
 
   @override
- Widget build(BuildContext context) {
+  Widget build(BuildContext context) {
     final hookResults = useFetchDrinksByCategory('345345345');
     List<DrinksModel>? drinks = hookResults.data;
     final isLoading = hookResults.isLoading;
@@ -21,9 +21,7 @@ class CategoryDrinksList extends HookWidget {
       return null;
     }, [hookResults.data]); // Cập nhật mỗi khi hookResults.data thay đổi
 
-
-
-     return SizedBox(
+    return SizedBox(
       width: width,
       height: height,
       child: isLoading
@@ -31,9 +29,16 @@ class CategoryDrinksList extends HookWidget {
           : Padding(
               padding: EdgeInsets.all(12.h),
               child: ListView(
-                children: List.generate(drinks!.length, (i) => DrinkTitle(drinks: drinks![i]),
-              )
-              ),
+                  children: List.generate(
+                drinks!.length,
+                (i) {
+                  DrinksModel drink = drinks![i];
+                  return DrinkTitle(
+                    color: Colors.white,
+                    drinks: drink,
+                  );
+                },
+              )),
             ),
     );
   }

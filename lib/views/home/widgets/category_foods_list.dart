@@ -12,11 +12,11 @@ class CategoryFoodsList extends HookWidget {
 
   @override
   Widget build(BuildContext context) {
-    final hookResults = useFetchFoodsByCategory('456456457'); 
+    final hookResults = useFetchFoodsByCategory('456456457');
     List<FoodsModel>? foods = hookResults.data;
     final isLoading = hookResults.isLoading;
 
- useEffect(() {
+    useEffect(() {
       foods = hookResults.data;
       return null;
     }, [hookResults.data]); // Cập nhật mỗi khi hookResults.data thay đổi
@@ -29,9 +29,16 @@ class CategoryFoodsList extends HookWidget {
           : Padding(
               padding: EdgeInsets.all(12.h),
               child: ListView(
-                children: List.generate(foods!.length, (i) => FoodTitle(foods: foods![i]),
-              )
-              ),
+                  children: List.generate(
+                foods!.length,
+                (i) {
+                  FoodsModel food = foods![i];
+                  return FoodTitle(
+                    color: Colors.white,
+                    foods: food,
+                  );
+                },
+              )),
             ),
     );
   }

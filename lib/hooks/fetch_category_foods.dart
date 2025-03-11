@@ -16,11 +16,14 @@ FetchHook<List<FoodsModel>> useFetchFoodsByCategory(String code) {
   final error = useState<Exception?>(null);
   final apiError = useState<ApiError?>(null);
 
+
+  var categoryValue = controller.categoryValue;
+
   Future<void> fetchData() async {
     isLoading.value = true;
     try {
       String? accessToken = await getAccessToken();
-      final url = Uri.parse('$appBaseUrl/api/foods/byCategory/${controller.categoryValue}/$code');
+    final url = Uri.parse('$appBaseUrl/api/foods/byCategory/$categoryValue/$code');
       
       final response = await http.get(
         url,
